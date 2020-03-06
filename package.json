@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "next": "9.2.2",
+    "node-sass": "^4.13.1",
     "react": "16.13.0",
-    "react-dom": "16.13.0"
+    "react-dom": "16.13.0",
+    "styled-jsx": "^3.2.4"
   }
 }
