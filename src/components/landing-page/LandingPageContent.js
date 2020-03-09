@@ -54,6 +54,9 @@ const LandingPageContent = () => {
         color='primary'
         className={classes.ctaBtn}
         fullWidth
+        component={Link}
+        naked
+        href='/signup'
       >
         Sign up
       </Button>
