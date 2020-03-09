@@ -1,0 +1,25 @@
+/*
+ * The default environment for production.
+ * Values are overridden in other environment files.
+ */
+// #TODO: add production values
+export default function(baseApi) {
+  return {
+    route: {
+      baseRoute: ""
+    },
+    api: {
+      authentication: baseApi + "/oauth/token",
+      profile: baseApi + "/api/v1/profile",
+      register: baseApi + "/api/v1/register",
+      util: {
+        form: baseApi + "/api/v1/util/form/hsa"
+      }
+    },
+    token: {
+      auth: "some_auth_token"
+    },
+    isProduction: true,
+    isDevelopment: false
+  };
+}

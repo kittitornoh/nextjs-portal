@@ -3,7 +3,7 @@ import TextField from "@material-ui/core/TextField";
 import { Formik } from "formik";
 import React, { Component } from "react";
 import * as yup from "yup";
-import Link from "../../_utility/Link";
+import Link from "../../_utils/Link";
 
 const loginValidationSchema = yup.object().shape({
   email: yup
