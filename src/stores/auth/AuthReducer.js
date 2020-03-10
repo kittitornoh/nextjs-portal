@@ -1,4 +1,4 @@
-import { REQUEST_AUTH_FINISHED, REQUEST_DEAUTH_FINISHED } from "./AuthTypes";
+import { AUTHENTICATE } from "./authTypes";
 
 // initial state
 const initialState = {
@@ -7,15 +7,10 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case REQUEST_AUTH_FINISHED:
+    case AUTHENTICATE:
       return {
         ...state,
         token: action.payload
-      };
-    case REQUEST_DEAUTH_FINISHED:
-      return {
-        ...state,
-        token: null
       };
     default:
       return state;

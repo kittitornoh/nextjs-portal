@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import store from "../stores/rootStore";
 import theme from "../theme";
 
-export default withRedux(store, { debug: true })(
+export default withRedux(store)(
   class InxiteHaloApp extends App {
     static async getInitialProps({ Component, ctx }) {
       return {

@@ -1,29 +1,31 @@
 import axios from "axios";
-import Router from "next/router";
+//import Router from "next/router";
 import development from "../../environments/development";
-import { REQUEST_AUTH, REQUEST_AUTH_FINISHED } from "./AuthTypes";
+import { AUTHENTICATE } from "./authTypes";
 
 // define environment and api route
 const environment = development;
 const api = environment.api.authentication;
 
-export const requestAuth = credentials => dispatch => {
+export const authenticate = user => dispatch => {
+  console.log("START");
   // header
   const config = {
-    grant_type: process.env.REACT_APP_GRANT_TYPE,
-    client_id: process.env.REACT_APP_CLIENT_ID,
+    grant_type: process.env.GRANT_TYPE,
+    client_id: process.env.CLIENT_ID,
     client_secret: environment.token.auth,
-    username: credentials.username,
-    password: credentials.password
+    username: user.email,
+    password: user.password
   };
 
-  dispatch({ type: REQUEST_AUTH });
+  console.log(config);
 
   axios
     .post(api, config)
     .then(res => {
-      dispatch({ type: REQUEST_AUTH_FINISHED, payload: res.data.access_token });
-      Router.push("/home"); // direct to home page
+      console.log(res);
+      dispatch({ type: AUTHENTICATE, payload: res.data.access_token });
+      //Router.push("/home"); // direct to home page
     })
     .catch(err => console.error(err));
 };

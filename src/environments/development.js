@@ -3,7 +3,7 @@
  */
 import environment from "./base";
 
-const baseApi = process.env.REACT_APP_BASE_API;
+const baseApi = process.env.BASE_API;
 const env = environment(baseApi);
 
 const developmentEnv = {
@@ -11,7 +11,7 @@ const developmentEnv = {
   // override anything that gets added from base
   token: {
     ...env.token,
-    auth: process.env.REACT_APP_CLIENT_SECRET
+    auth: process.env.CLIENT_SECRET
   },
   isProduction: false,
   isDevelopment: true
