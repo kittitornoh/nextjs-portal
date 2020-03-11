@@ -1,18 +1,16 @@
 import { connect } from "react-redux";
 import MainLayout from "../components/MainLayout";
-import { checkServerSideCookie } from "../stores/auth/authActions";
 
-const Home = ({ user }) => (
+const Test = ({ user }) => (
   <MainLayout>
     <h2>Who am i</h2>
     {JSON.stringify(user)}
   </MainLayout>
 );
 
-Home.getInitialProps = async ctx => {
-  checkServerSideCookie(ctx);
-
+Test.getInitialProps = async ctx => {
   const token = ctx.store.getState().auth.token;
+  console.log(token);
   if (token) {
     return {
       user: "Ryan"
@@ -20,4 +18,4 @@ Home.getInitialProps = async ctx => {
   }
 };
 
-export default connect(state => state)(Home);
+export default connect(state => state)(Test);

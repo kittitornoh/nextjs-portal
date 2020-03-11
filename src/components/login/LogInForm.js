@@ -19,8 +19,8 @@ const LogInForm = ({ authenticate }) => {
   return (
     <Formik
       initialValues={{
-        email: "",
-        password: ""
+        email: "khodges@inxitehealth.com",
+        password: "khodges123"
         //,rememberEmail: this.props.storedEmail !== "" ? true : false
       }}
       validationSchema={loginValidationSchema}

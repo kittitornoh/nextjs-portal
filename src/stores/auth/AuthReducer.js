@@ -1,4 +1,4 @@
-import { AUTHENTICATE } from "./authTypes";
+import { AUTHENTICATE, DEAUTHENTICATE } from "./authTypes";
 
 // initial state
 const initialState = {
@@ -11,6 +11,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         token: action.payload
+      };
+    case DEAUTHENTICATE:
+      return {
+        ...state,
+        token: null
       };
     default:
       return state;
