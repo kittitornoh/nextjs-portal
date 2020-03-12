@@ -1,9 +1,9 @@
 import Button from "@material-ui/core/Button";
+import Link from "@material-ui/core/Link";
 import TextField from "@material-ui/core/TextField";
 import { Formik } from "formik";
 import React, { Component } from "react";
 import * as yup from "yup";
-import Link from "../../_utility/Link";
 
 const loginValidationSchema = yup.object().shape({
   email: yup
@@ -19,8 +19,8 @@ class LogInForm extends Component {
     return (
       <Formik
         initialValues={{
-          email: "",
-          password: ""
+          email: "khodges@inxitehealth.com", // #TODO: remove
+          password: "khodges123" // #TODO: remove
           //,rememberEmail: this.props.storedEmail !== "" ? true : false
         }}
         validationSchema={loginValidationSchema}
@@ -68,15 +68,15 @@ class LogInForm extends Component {
               variant='outlined'
               fullWidth
             />
-            <Button
-              size='small'
-              variant='text'
+            <Link
+              type='button'
+              component='button'
+              variant='caption'
               color='primary'
-              style={{ textTransform: "none" }}
               onClick={() => console.log("I forgot my password")} // #TODO: implement forgot pass
             >
               Forgot your password?
-            </Button>
+            </Link>
             {/* <FormControlLabel
               control={
                 <Checkbox
@@ -90,13 +90,11 @@ class LogInForm extends Component {
               label='Remember my email'
             /> */}
             <Button
+              type='submit'
               variant='contained'
               color='primary'
               style={{ margin: "16px 0" }}
               fullWidth
-              component={Link}
-              naked
-              href='/home'
             >
               Log in
             </Button>

@@ -2,9 +2,11 @@
  * Landing page
  */
 import Grid from "@material-ui/core/Grid";
+import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
+import NextLink from "../../_utility/Link";
 import LogInForm from "../login/LogInForm";
 
 const useStyles = makeStyles(theme => ({
@@ -44,6 +46,14 @@ const LandingPageLogin = props => {
       </Typography>
       <LogInForm />
       <Typography variant='body2'>Don't have an account?</Typography>
+      <Link
+        component={NextLink}
+        href='/signup'
+        variant='subtitle2'
+        color='primary'
+      >
+        Create one
+      </Link>
     </Grid>
   );
 };
