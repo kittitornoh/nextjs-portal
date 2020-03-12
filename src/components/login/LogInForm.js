@@ -1,4 +1,5 @@
 import Button from "@material-ui/core/Button";
+import Link from "@material-ui/core/Link";
 import TextField from "@material-ui/core/TextField";
 import { Formik } from "formik";
 import React from "react";
@@ -19,7 +20,7 @@ const LogInForm = ({ authenticate }) => {
   return (
     <Formik
       initialValues={{
-        email: "khodges@inxitehealth.com",
+        email: "khodges@inxitehealth.com", // #TODO: remove saved values
         password: "khodges123"
         //,rememberEmail: this.props.storedEmail !== "" ? true : false
       }}
@@ -57,15 +58,14 @@ const LogInForm = ({ authenticate }) => {
             variant='outlined'
             fullWidth
           />
-          <Button
-            size='small'
-            variant='text'
-            color='primary'
-            style={{ textTransform: "none" }}
+          <Link
+            component='button'
+            type='button'
+            variant='caption'
             onClick={() => console.log("I forgot my password")} // #TODO: implement forgot pass
           >
             Forgot your password?
-          </Button>
+          </Link>
           {/* <FormControlLabel
               control={
                 <Checkbox

@@ -44,7 +44,7 @@ const LandingPageContent = () => {
         className={classes.logo}
       />
       <Typography component='h1' variant='h4' className={classes.cta}>
-        Take control of your health data now
+        Your data in your hands
       </Typography>
       <Typography component='h2' variant='h6' className={classes.ctaSub}>
         Create a free account today.

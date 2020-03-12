@@ -27,6 +27,7 @@ const useStyles = makeStyles(theme => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1
+    // backgroundColor: "#ffffff"
   },
   drawerPaper: {
     position: "relative",
@@ -51,7 +52,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const MainLayout = ({ children }) => {
+const MainLayout = ({ children, isAuth }) => {
   const classes = useStyles();
 
   return (
@@ -71,7 +72,7 @@ const MainLayout = ({ children }) => {
       >
         <div className={classes.appBarSpacer} />
         <List>
-          <ListItem button>
+          <ListItem button selected={true}>
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
