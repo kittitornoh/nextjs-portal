@@ -1,11 +1,24 @@
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "@material-ui/core/styles";
+import withRedux from "next-redux-wrapper";
 import App from "next/app";
 import Head from "next/head";
 import React from "react";
+import { Provider } from "react-redux";
+import store from "../stores/rootStore";
 import theme from "../theme";
 
-export default class InxiteHaloApp extends App {
+class InxiteHaloApp extends App {
+  static async getInitialProps({ Component, ctx }) {
+    return {
+      pageProps: {
+        ...(Component.getInitialProps
+          ? await Component.getInitialProps(ctx)
+          : {})
+      }
+    };
+  }
+
   componentDidMount() {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector("#jss-server-side");
@@ -15,10 +28,10 @@ export default class InxiteHaloApp extends App {
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, store } = this.props;
 
     return (
-      <React.Fragment>
+      <Provider store={store}>
         <Head>
           <title>Inxite Halo</title>
           <meta
@@ -31,7 +44,9 @@ export default class InxiteHaloApp extends App {
           <CssBaseline />
           <Component {...pageProps} />
         </ThemeProvider>
-      </React.Fragment>
+      </Provider>
     );
   }
 }
+
+export default withRedux(store)(InxiteHaloApp);

@@ -2,8 +2,13 @@ import Button from "@material-ui/core/Button";
 import Link from "@material-ui/core/Link";
 import TextField from "@material-ui/core/TextField";
 import { Formik } from "formik";
-import React, { Component } from "react";
+import React from "react";
+import { connect } from "react-redux";
 import * as yup from "yup";
+<<<<<<< HEAD
+=======
+import { authenticate } from "../../stores/auth/authActions";
+>>>>>>> feature/redux
 
 const loginValidationSchema = yup.object().shape({
   email: yup
@@ -14,6 +19,7 @@ const loginValidationSchema = yup.object().shape({
 });
 
 // #TODO: implement 'remember my email'
+<<<<<<< HEAD
 class LogInForm extends Component {
   render() {
     return (
@@ -78,6 +84,59 @@ class LogInForm extends Component {
               Forgot your password?
             </Link>
             {/* <FormControlLabel
+=======
+const LogInForm = ({ authenticate }) => {
+  return (
+    <Formik
+      initialValues={{
+        email: "khodges@inxitehealth.com", // #TODO: remove saved values
+        password: "khodges123"
+        //,rememberEmail: this.props.storedEmail !== "" ? true : false
+      }}
+      validationSchema={loginValidationSchema}
+      onSubmit={values => {
+        const user = values;
+        authenticate(user);
+      }}
+    >
+      {props => (
+        <form noValidate autoComplete='off' onSubmit={props.handleSubmit}>
+          <TextField
+            id='email'
+            label='Email address'
+            type='email'
+            value={props.values.email} // #TODO: initiate with save email, if saved
+            onChange={props.handleChange}
+            onBlur={props.handleBlur}
+            helperText={props.touched.email ? props.errors.email : ""}
+            error={props.touched.email && Boolean(props.errors.email)}
+            margin='dense'
+            variant='outlined'
+            fullWidth
+          />
+          <TextField
+            id='password'
+            label='Password'
+            type='password'
+            value={props.values.password}
+            onChange={props.handleChange}
+            onBlur={props.handleBlur}
+            helperText={props.touched.password ? props.errors.password : ""}
+            error={props.touched.password && Boolean(props.errors.password)}
+            margin='dense'
+            variant='outlined'
+            fullWidth
+          />
+          <Link
+            component='button'
+            type='button'
+            variant='caption'
+            onClick={() => console.log("I forgot my password")} // #TODO: implement forgot pass
+          >
+            Forgot your password?
+          </Link>
+          {/* <FormControlLabel
+>>>>>>> feature/redux
               control={
                 <Checkbox
                   id='rememberPass'
@@ -89,6 +148,7 @@ class LogInForm extends Component {
               }
               label='Remember my email'
             /> */}
+<<<<<<< HEAD
             <Button
               type='submit'
               variant='contained'
@@ -104,5 +164,21 @@ class LogInForm extends Component {
     );
   }
 }
+=======
+          <Button
+            type='submit'
+            variant='contained'
+            color='primary'
+            style={{ margin: "16px 0" }}
+            fullWidth
+          >
+            Log in
+          </Button>
+        </form>
+      )}
+    </Formik>
+  );
+};
+>>>>>>> feature/redux
 
-export default LogInForm;
+export default connect(state => state, { authenticate })(LogInForm);

@@ -6,7 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
-import Link from "../../_utility/Link";
+import Link from "../../_utils/Link";
 
 const useStyles = makeStyles(theme => ({
   content: {
@@ -44,7 +44,7 @@ const LandingPageContent = () => {
         className={classes.logo}
       />
       <Typography component='h1' variant='h4' className={classes.cta}>
-        Take control of your health data now
+        Your data in your hands
       </Typography>
       <Typography component='h2' variant='h6' className={classes.ctaSub}>
         Create a free account today.

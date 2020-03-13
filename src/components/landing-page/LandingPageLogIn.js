@@ -47,12 +47,21 @@ const LandingPageLogin = props => {
       <LogInForm />
       <Typography variant='body2'>Don't have an account?</Typography>
       <Link
+<<<<<<< HEAD
         component={NextLink}
         href='/signup'
         variant='subtitle2'
         color='primary'
       >
         Create one
+=======
+        component='button'
+        type='button'
+        variant='caption'
+        onClick={() => console.log("Make me an account")} // #TODO: implement forgot pass
+      >
+        Create one now
+>>>>>>> feature/redux
       </Link>
     </Grid>
   );
