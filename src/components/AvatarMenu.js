@@ -1,11 +1,20 @@
 import Avatar from "@material-ui/core/Avatar";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import { connect } from "react-redux";
 import { deauthenticate } from "../stores/auth/authActions";
 
+const useStyle = makeStyles(theme => ({
+  accountMenu: {
+    minWidth: 240,
+    marginTop: theme.spacing(5)
+  }
+}));
+
 const AvatarMenu = ({ deauthenticate }) => {
+  const classes = useStyle();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = e => {
@@ -31,6 +40,7 @@ const AvatarMenu = ({ deauthenticate }) => {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
+        className={classes.accountMenu}
       >
         <MenuItem onClick={handleClose}>Settings</MenuItem>
         <MenuItem onClick={deauthenticate}>Sign out</MenuItem>

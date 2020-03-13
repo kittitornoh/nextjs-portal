@@ -1,17 +1,12 @@
 import AppBar from "@material-ui/core/AppBar";
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Drawer from "@material-ui/core/Drawer";
 import Grid from "@material-ui/core/Grid";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
 import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
-import HomeIcon from "@material-ui/icons/Home";
 import React from "react";
 import AvatarMenu from "./AvatarMenu";
+import MainNav from "./main-nav/MainNav";
 
 const drawerWidth = 240;
 
@@ -26,13 +21,10 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1
   },
   appBar: {
-    zIndex: theme.zIndex.drawer + 1
-    // backgroundColor: "#ffffff"
-  },
-  drawerPaper: {
-    position: "relative",
-    whiteSpace: "nowrap",
-    width: drawerWidth
+    zIndex: theme.zIndex.drawer + 1,
+    backgroundColor: "#ffffff",
+    boxShadow: "none",
+    borderBottom: "1px solid rgba(0, 0, 0, 0.12)"
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
@@ -43,12 +35,6 @@ const useStyles = makeStyles(theme => ({
   container: {
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4)
-  },
-  paper: {
-    padding: theme.spacing(2),
-    display: "flex",
-    overflow: "auto",
-    flexDirection: "column"
   }
 }));
 
@@ -60,26 +46,17 @@ const MainLayout = ({ children, isAuth }) => {
       <CssBaseline />
       <AppBar position='absolute' className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
+          <img
+            src='/inxite-logo.svg'
+            alt='inxite logo'
+            height={40}
+            className={classes.logo}
+          />
           <div className={classes.toolbarSpace} />
           <AvatarMenu />
         </Toolbar>
       </AppBar>
-      <Drawer
-        variant='permanent'
-        classes={{
-          paper: classes.drawerPaper
-        }}
-      >
-        <div className={classes.appBarSpacer} />
-        <List>
-          <ListItem button selected={true}>
-            <ListItemIcon>
-              <HomeIcon />
-            </ListItemIcon>
-            <ListItemText primary='Home' />
-          </ListItem>
-        </List>
-      </Drawer>
+      <MainNav />
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth='lg' className={classes.container}>
