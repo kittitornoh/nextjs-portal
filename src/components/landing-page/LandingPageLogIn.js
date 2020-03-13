@@ -6,7 +6,7 @@ import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
-import NextLink from "../../_utility/Link";
+import NextLink from "../../_utils/Link";
 import LogInForm from "../login/LogInForm";
 
 const useStyles = makeStyles(theme => ({

@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import * as yup from "yup";
 import { authenticate } from "../../stores/auth/authActions";
 
+// #TODO: display error on invalid login
 const loginValidationSchema = yup.object().shape({
   email: yup
     .string()
