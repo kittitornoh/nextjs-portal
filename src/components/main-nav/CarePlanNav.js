@@ -1,24 +1,21 @@
+import {
+  faCalendarDay,
+  faFlagAlt,
+  faHeartbeat,
+  faPrescriptionBottle,
+  faStethoscope,
+  faWalking
+} from "@fortawesome/pro-solid-svg-icons";
 import Collapse from "@material-ui/core/Collapse";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import { makeStyles } from "@material-ui/core/styles";
-import AppointmentsIcon from "@material-ui/icons/EventRounded";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
-import GoalsIcon from "@material-ui/icons/FlagRounded";
-import StarBorder from "@material-ui/icons/StarBorder";
 import React from "react";
+import MainNavItem from "./MainNavItem";
 
-const useStyles = makeStyles(theme => ({
-  nested: {
-    paddingLeft: theme.spacing(3)
-  }
-}));
-
-export default function MainNav() {
-  const classes = useStyles();
+export default function CarePlanNav() {
   const [open, setOpen] = React.useState(false);
 
   const handleClickUnifiedRecord = () => {
@@ -33,42 +30,12 @@ export default function MainNav() {
       </ListItem>
       <Collapse in={open} timeout='auto' unmountOnExit>
         <List component='div' disablePadding>
-          <ListItem button className={classes.nested}>
-            <ListItemIcon>
-              <AppointmentsIcon />
-            </ListItemIcon>
-            <ListItemText primary='Appointments' />
-          </ListItem>
-          <ListItem button className={classes.nested}>
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary='Problems' />
-          </ListItem>
-          <ListItem button className={classes.nested}>
-            <ListItemIcon>
-              <GoalsIcon />
-            </ListItemIcon>
-            <ListItemText primary='Goals' />
-          </ListItem>
-          <ListItem button className={classes.nested}>
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary='Medications' />
-          </ListItem>
-          <ListItem button className={classes.nested}>
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary='Activities' />
-          </ListItem>
-          <ListItem button className={classes.nested}>
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary='Health Metrics' />
-          </ListItem>
+          <MainNavItem icon={faCalendarDay} label='Appointments' nested />
+          <MainNavItem icon={faStethoscope} label='Problems' nested />
+          <MainNavItem icon={faFlagAlt} label='Goals' nested />
+          <MainNavItem icon={faPrescriptionBottle} label='Medications' nested />
+          <MainNavItem icon={faWalking} label='Activities' nested />
+          <MainNavItem icon={faHeartbeat} label='Health Metrics' nested />
         </List>
       </Collapse>
     </React.Fragment>

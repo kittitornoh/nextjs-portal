@@ -1,17 +1,17 @@
+import {
+  faCheckCircle,
+  faComments,
+  faFileAlt,
+  faFolder,
+  faHomeAlt,
+  faUsers
+} from "@fortawesome/pro-solid-svg-icons";
 import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
 import { makeStyles } from "@material-ui/core/styles";
-import AssessmentsIcon from "@material-ui/icons/AssignmentRounded";
-import TasksIcon from "@material-ui/icons/CheckCircle";
-import DocumentsIcon from "@material-ui/icons/FolderRounded";
-import MessagesIcon from "@material-ui/icons/ForumRounded";
-import CareTeamIcon from "@material-ui/icons/GroupRounded";
-import HomeIcon from "@material-ui/icons/HomeRounded";
 import React from "react";
 import CarePlanNav from "./CarePlanNav";
+import MainNavItem from "./MainNavItem";
 import UnifiedRecordNav from "./UnifiedRecordNav";
 
 const useStyles = makeStyles(theme => ({
@@ -53,47 +53,17 @@ export default function MainNav() {
 
   return (
     <List component='nav' className={classes.root}>
-      <ListItem button selected={true}>
-        <ListItemIcon>
-          <HomeIcon />
-        </ListItemIcon>
-        <ListItemText primary='Home' />
-      </ListItem>
-      <ListItem button>
-        <ListItemIcon>
-          <TasksIcon />
-        </ListItemIcon>
-        <ListItemText primary='My Tasks' />
-      </ListItem>
-      <ListItem button>
-        <ListItemIcon>
-          <MessagesIcon />
-        </ListItemIcon>
-        <ListItemText primary='Messages' />
-      </ListItem>
-      <ListItem button>
-        <ListItemIcon>
-          <CareTeamIcon />
-        </ListItemIcon>
-        <ListItemText primary='Care Team' />
-      </ListItem>
+      <MainNavItem selected={true} icon={faHomeAlt} label='Home' />
+      <MainNavItem icon={faCheckCircle} label='My Tasks' />
+      <MainNavItem icon={faComments} label='Messages' />
+      <MainNavItem icon={faUsers} label='Care Team' />
+      <MainNavItem icon={faFileAlt} label='Assessments' />
+      <MainNavItem icon={faFolder} label='Documents' />
       <Divider />
       <CarePlanNav />
       <Divider />
       <UnifiedRecordNav />
       <Divider />
-      <ListItem button>
-        <ListItemIcon>
-          <AssessmentsIcon />
-        </ListItemIcon>
-        <ListItemText primary='Assessments' />
-      </ListItem>
-      <ListItem button>
-        <ListItemIcon>
-          <DocumentsIcon />
-        </ListItemIcon>
-        <ListItemText primary='Documents' />
-      </ListItem>
     </List>
   );
 }
