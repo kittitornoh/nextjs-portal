@@ -1,18 +1,29 @@
 import {
+  faAllergies,
+  faCalendarDay,
   faCheckCircle,
+  faClipboard,
   faComments,
   faFileAlt,
+  faFlagAlt,
   faFolder,
+  faHeartbeat,
+  faHeartRate,
   faHomeAlt,
-  faUsers
+  faHospital,
+  faPrescriptionBottle,
+  faStethoscope,
+  faSyringe,
+  faUserFriends,
+  faUsers,
+  faWalking
 } from "@fortawesome/pro-solid-svg-icons";
 import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
-import CarePlanNav from "./CarePlanNav";
+import MainNavCollapse from "./MainNavCollapse";
 import MainNavItem from "./MainNavItem";
-import UnifiedRecordNav from "./UnifiedRecordNav";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -60,9 +71,23 @@ export default function MainNav() {
       <MainNavItem icon={faFileAlt} label='Assessments' />
       <MainNavItem icon={faFolder} label='Documents' />
       <Divider />
-      <CarePlanNav />
+      <MainNavCollapse label='Care Plan'>
+        <MainNavItem icon={faCalendarDay} label='Appointments' nested />
+        <MainNavItem icon={faStethoscope} label='Problems' nested />
+        <MainNavItem icon={faFlagAlt} label='Goals' nested />
+        <MainNavItem icon={faPrescriptionBottle} label='Medications' nested />
+        <MainNavItem icon={faWalking} label='Activities' nested />
+        <MainNavItem icon={faHeartbeat} label='Health Metrics' nested />
+      </MainNavCollapse>
       <Divider />
-      <UnifiedRecordNav />
+      <MainNavCollapse label='Unified Record'>
+        <MainNavItem icon={faClipboard} label='Diagnoses' nested />
+        <MainNavItem icon={faAllergies} label='Allergies' nested />
+        <MainNavItem icon={faSyringe} label='Immunizations' nested />
+        <MainNavItem icon={faHospital} label='Labs' nested />
+        <MainNavItem icon={faHeartRate} label='Vitals' nested />
+        <MainNavItem icon={faUserFriends} label='Family' nested />
+      </MainNavCollapse>
       <Divider />
     </List>
   );
