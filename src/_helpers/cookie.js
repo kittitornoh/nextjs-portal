@@ -6,7 +6,6 @@ export const setCookie = (key, value) => {
       expires: 1,
       path: "/"
     });
-    console.log("cookie set");
   }
 };
 
@@ -15,7 +14,6 @@ export const removeCookie = key => {
     cookie.remove(key, {
       expires: 1
     });
-    console.log("cookie removed");
   }
 };
 

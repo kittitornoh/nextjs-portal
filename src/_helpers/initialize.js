@@ -4,7 +4,6 @@ import { getCookie } from "./cookie";
 
 // checks if the pate is being loaded on the server, and if so, get auth token from cookie
 export default function(ctx) {
-  console.log("initializing...");
   const login = "/login?redirect=true"; // #TODO: query params for debugging
 
   if (ctx.isServer) {
@@ -24,7 +23,12 @@ export default function(ctx) {
     const token = ctx.store.getState().auth.token;
 
     // redirect if there is no cookie
-    if (!token && (ctx.pathname !== "/login" || ctx.pathname !== "/signup")) {
+    if (
+      !token &&
+      (ctx.pathname !== "/" ||
+        ctx.pathname !== "/login" ||
+        ctx.pathname !== "/signup")
+    ) {
       Router.push(login);
     }
   }
