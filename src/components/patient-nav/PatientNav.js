@@ -24,6 +24,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
 import MainNavCollapse from './MainNavCollapse';
 import MainNavItem from './MainNavItem';
+import { useRouter } from 'next/router';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -59,28 +60,66 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-export default function MainNav() {
+// #TODO: implement path constants??
+export default function PatientNav() {
 	const classes = useStyles();
+	const router = useRouter();
 
 	return (
 		<List component='nav' className={classes.root}>
-			<MainNavItem selected icon={faHomeAlt} label='Home' />
-			<MainNavItem icon={faCheckCircle} label='My Tasks' />
-			<MainNavItem icon={faComments} label='Messages' />
-			<MainNavItem icon={faUsers} label='Care Team' />
-			<MainNavItem icon={faFileAlt} label='Assessments' />
-			<MainNavItem icon={faFolder} label='Documents' />
+			<MainNavItem href='/home' icon={faHomeAlt} label='Home' />
+			<MainNavItem href='/my-tasks' icon={faCheckCircle} label='My Tasks' />
+			<MainNavItem href='/messages' icon={faComments} label='Messages' />
+			<MainNavItem href='/care-team' icon={faUsers} label='Care Team' />
+			<MainNavItem href='/assessments' icon={faFileAlt} label='Assessments' />
+			<MainNavItem href='/documents' icon={faFolder} label='Documents' />
 			<Divider />
-			<MainNavCollapse label='Care Plan'>
-				<MainNavItem icon={faCalendarDay} label='Appointments' nested />
-				<MainNavItem icon={faStethoscope} label='Problems' nested />
-				<MainNavItem icon={faFlagAlt} label='Goals' nested />
-				<MainNavItem icon={faPrescriptionBottle} label='Medications' nested />
-				<MainNavItem icon={faWalking} label='Activities' nested />
-				<MainNavItem icon={faHeartbeat} label='Health Metrics' nested />
+			<MainNavCollapse
+				label='Care Plan'
+				open={router.pathname.startsWith('/care-plan')}
+			>
+				<MainNavItem
+					href='/care-plan/appointments'
+					icon={faCalendarDay}
+					label='Appointments'
+					nested
+				/>
+				<MainNavItem
+					href='/care-plan/problems'
+					icon={faStethoscope}
+					label='Problems'
+					nested
+				/>
+				<MainNavItem
+					href='/care-plan/goals'
+					icon={faFlagAlt}
+					label='Goals'
+					nested
+				/>
+				<MainNavItem
+					href='/care-plan/medications'
+					icon={faPrescriptionBottle}
+					label='Medications'
+					nested
+				/>
+				<MainNavItem
+					href='/care-plan/activities'
+					icon={faWalking}
+					label='Activities'
+					nested
+				/>
+				<MainNavItem
+					href='/care-plan/health-metrics'
+					icon={faHeartbeat}
+					label='Health Metrics'
+					nested
+				/>
 			</MainNavCollapse>
 			<Divider />
-			<MainNavCollapse label='Unified Record'>
+			<MainNavCollapse
+				label='Unified Record'
+				open={router.pathname.startsWith('/unified-record')}
+			>
 				<MainNavItem icon={faClipboard} label='Diagnoses' nested />
 				<MainNavItem icon={faAllergies} label='Allergies' nested />
 				<MainNavItem icon={faSyringe} label='Immunizations' nested />
