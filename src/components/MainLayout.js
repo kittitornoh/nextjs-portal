@@ -38,14 +38,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const MainLayout = ({ children, isAuth }) => {
+const MainLayout = ({ children }) => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position='absolute' className={classes.appBar}>
-        <Toolbar className={classes.toolbar}>
+        <Toolbar>
           <img
             src='/inxite-logo.svg'
             alt='inxite logo'

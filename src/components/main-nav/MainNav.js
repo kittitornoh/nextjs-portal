@@ -64,7 +64,7 @@ export default function MainNav() {
 
   return (
     <List component='nav' className={classes.root}>
-      <MainNavItem selected={true} icon={faHomeAlt} label='Home' />
+      <MainNavItem selected icon={faHomeAlt} label='Home' />
       <MainNavItem icon={faCheckCircle} label='My Tasks' />
       <MainNavItem icon={faComments} label='Messages' />
       <MainNavItem icon={faUsers} label='Care Team' />
