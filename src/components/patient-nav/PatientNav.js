@@ -120,12 +120,42 @@ export default function PatientNav() {
 				label='Unified Record'
 				open={router.pathname.startsWith('/unified-record')}
 			>
-				<MainNavItem icon={faClipboard} label='Diagnoses' nested />
-				<MainNavItem icon={faAllergies} label='Allergies' nested />
-				<MainNavItem icon={faSyringe} label='Immunizations' nested />
-				<MainNavItem icon={faHospital} label='Labs' nested />
-				<MainNavItem icon={faHeartRate} label='Vitals' nested />
-				<MainNavItem icon={faUserFriends} label='Family' nested />
+				<MainNavItem
+					href='/unified-record/diagnoses'
+					icon={faClipboard}
+					label='Diagnoses'
+					nested
+				/>
+				<MainNavItem
+					href='/unified-record/allergies'
+					icon={faAllergies}
+					label='Allergies'
+					nested
+				/>
+				<MainNavItem
+					href='/unified-record/immunizations'
+					icon={faSyringe}
+					label='Immunizations'
+					nested
+				/>
+				<MainNavItem
+					href='/unified-record/labs'
+					icon={faHospital}
+					label='Labs'
+					nested
+				/>
+				<MainNavItem
+					href='/unified-record/vitals'
+					icon={faHeartRate}
+					label='Vitals'
+					nested
+				/>
+				<MainNavItem
+					href='/unified-record/family'
+					icon={faUserFriends}
+					label='Family'
+					nested
+				/>
 			</MainNavCollapse>
 			<Divider />
 		</List>

@@ -18,17 +18,18 @@ export default function(ctx) {
 			} else {
 				ctx.store.dispatch(authActions.reauthenticate(token));
 			}
+		} else {
+			console.log('you shall not pass'); // #TODO: remove
+			ctx.res.writeHead(302, {
+				Location: login
+			});
+			ctx.res.end();
 		}
 	} else {
 		const token = ctx.store.getState().auth.token;
 
 		// redirect if there is no cookie
-		if (
-			!token &&
-			(ctx.pathname !== '/' ||
-				ctx.pathname !== '/login' ||
-				ctx.pathname !== '/signup')
-		) {
+		if (!token) {
 			Router.push(login);
 		}
 	}
