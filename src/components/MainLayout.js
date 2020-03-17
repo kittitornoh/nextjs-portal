@@ -1,12 +1,11 @@
-import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
 import React from 'react';
-import PatientNav from './patient-nav/PatientNav';
+import PatientNav from './side-nav/PatientNav';
 import MainHeader from './header/MainHeader';
+import ProviderNav from './side-nav/ProviderNav';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -24,14 +23,15 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-const MainLayout = ({ children }) => {
+const MainLayout = ({ children, role = 'patient' }) => {
 	const classes = useStyles();
 
 	return (
 		<div className={classes.root}>
 			<CssBaseline />
 			<MainHeader />
-			<PatientNav />
+			{role === 'patient' && <PatientNav />}
+			{role === 'provider' && <ProviderNav />}
 			<main className={classes.content}>
 				<div className={classes.appBarSpacer} />
 				<Container maxWidth='xl' className={classes.container}>
