@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 // #TODO: implement path constants??
-export default function ProviderNav() {
+export default function AdminNav() {
 	const classes = useStyles();
 
 	return (

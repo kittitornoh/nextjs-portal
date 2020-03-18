@@ -6,6 +6,7 @@ import React from 'react';
 import PatientNav from './side-nav/PatientNav';
 import MainHeader from './header/MainHeader';
 import ProviderNav from './side-nav/ProviderNav';
+import AdminNav from './side-nav/AdminNav';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -32,6 +33,7 @@ const MainLayout = ({ children, role = 'patient' }) => {
 			<MainHeader />
 			{role === 'patient' && <PatientNav />}
 			{role === 'provider' && <ProviderNav />}
+			{role === 'admin' && <AdminNav />}
 			<main className={classes.content}>
 				<div className={classes.appBarSpacer} />
 				<Container maxWidth='xl' className={classes.container}>
