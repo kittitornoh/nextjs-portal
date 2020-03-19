@@ -2,7 +2,7 @@ import axios from 'axios';
 import Router from 'next/router';
 import development from '../../environments/development';
 import { removeCookie, setCookie } from '../../_helpers/cookie';
-import { AUTHENTICATE, DEAUTHENTICATE } from './authTypes';
+import { AUTHENTICATE, DEAUTHENTICATE } from './AuthTypes';
 
 // define environment and api route
 const environment = development;
