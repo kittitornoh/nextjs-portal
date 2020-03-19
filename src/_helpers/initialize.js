@@ -1,5 +1,5 @@
 import Router from 'next/router';
-import * as authActions from '../stores/auth/authActions';
+import * as authActions from '../stores/auth/AuthActions';
 import { getCookie } from './cookie';
 
 // checks if the path is being loaded on the server, and if so, get auth token from cookie

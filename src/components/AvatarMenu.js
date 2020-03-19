@@ -4,7 +4,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
 import { connect } from 'react-redux';
-import { deauthenticate } from '../stores/auth/authActions';
+import { deauthenticate } from '../stores/auth/AuthActions';
 
 const useStyle = makeStyles(theme => ({
 	accountMenu: {
