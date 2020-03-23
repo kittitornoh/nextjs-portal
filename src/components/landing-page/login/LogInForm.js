@@ -5,7 +5,7 @@ import { Formik } from 'formik';
 import React from 'react';
 import { connect } from 'react-redux';
 import * as yup from 'yup';
-import { authenticate } from '../../stores/auth/AuthActions';
+import { authenticate } from '../../../stores/auth/AuthActions';
 
 // #TODO: display error on invalid login
 const loginValidationSchema = yup.object().shape({
