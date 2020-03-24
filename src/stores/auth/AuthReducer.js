@@ -1,8 +1,9 @@
-import { AUTHENTICATE, DEAUTHENTICATE } from './AuthTypes';
+import { AUTHENTICATE, AUTHENTICATE_ERROR, DEAUTHENTICATE } from './AuthTypes';
 
 // initial state
 const initialState = {
-	token: null
+	token: null,
+	error: null
 };
 
 export default function(state = initialState, action) {
@@ -10,12 +11,20 @@ export default function(state = initialState, action) {
 		case AUTHENTICATE:
 			return {
 				...state,
-				token: action.payload
+				token: action.payload,
+				error: null
+			};
+		case AUTHENTICATE_ERROR:
+			return {
+				...state,
+				token: null,
+				error: action.payload
 			};
 		case DEAUTHENTICATE:
 			return {
 				...state,
-				token: null
+				token: null,
+				error: null
 			};
 		default:
 			return state;

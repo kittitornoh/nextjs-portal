@@ -7,6 +7,10 @@ import * as yup from 'yup';
 import { register } from '../../../stores/register/RegisterActions';
 import Typography from '@material-ui/core/Typography';
 
+const mapStateToProps = (state, ownProps) => ({
+	registerStatus: state.register
+});
+
 const signupValidationSchema = yup.object().shape({
 	first_name: yup.string().required('First name is required'),
 	last_name: yup.string().required('Last name is required'),
@@ -22,10 +26,6 @@ const signupValidationSchema = yup.object().shape({
 		.string()
 		.oneOf([yup.ref('password'), null], 'Passwords must match')
 		.required('Confirm password is required')
-});
-
-const mapStateToProps = (state, ownProps) => ({
-	registerStatus: state.register
 });
 
 const SignUpForm = ({ register, registerStatus }) => {
@@ -45,12 +45,7 @@ const SignUpForm = ({ register, registerStatus }) => {
 			}}
 		>
 			{props => (
-				<form
-					noValidate
-					autoComplete='off'
-					onSubmit={props.handleSubmit}
-					encType='multipart/form-data'
-				>
+				<form noValidate autoComplete='off' onSubmit={props.handleSubmit}>
 					<TextField
 						id='first_name'
 						label='First name'
