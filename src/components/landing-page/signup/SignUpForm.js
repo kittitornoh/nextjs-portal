@@ -2,9 +2,10 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { Formik } from 'formik';
 import React from 'react';
-//import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import * as yup from 'yup';
-//import {} from '../../../stores/auth/AuthActions';
+import { register } from '../../../stores/register/RegisterActions';
+import Typography from '@material-ui/core/Typography';
 
 const signupValidationSchema = yup.object().shape({
 	first_name: yup.string().required('First name is required'),
@@ -23,23 +24,33 @@ const signupValidationSchema = yup.object().shape({
 		.required('Confirm password is required')
 });
 
-const SignUpForm = () => {
+const mapStateToProps = (state, ownProps) => ({
+	registerStatus: state.register
+});
+
+const SignUpForm = ({ register, registerStatus }) => {
 	return (
 		<Formik
 			initialValues={{
-				first_name: '',
-				last_name: '',
-				email: '',
-				password: '',
-				password_confirmation: ''
+				first_name: 'Michael',
+				last_name: 'Scott',
+				email: 'mscott@dunder.com',
+				password: 'password1',
+				password_confirmation: 'password1'
 			}}
 			validationSchema={signupValidationSchema}
 			onSubmit={values => {
-				console.log(values);
+				const user = values;
+				register(user);
 			}}
 		>
 			{props => (
-				<form noValidate autoComplete='off' onSubmit={props.handleSubmit}>
+				<form
+					noValidate
+					autoComplete='off'
+					onSubmit={props.handleSubmit}
+					encType='multipart/form-data'
+				>
 					<TextField
 						id='first_name'
 						label='First name'
@@ -112,6 +123,11 @@ const SignUpForm = () => {
 						variant='outlined'
 						fullWidth
 					/>
+					{registerStatus.error && (
+						<Typography variant='caption' color='error'>
+							{registerStatus.error}
+						</Typography>
+					)}
 					<Button
 						type='submit'
 						variant='contained'
@@ -127,5 +143,4 @@ const SignUpForm = () => {
 	);
 };
 
-//export default connect(state => state, {})(SignUpForm);
-export default SignUpForm;
+export default connect(mapStateToProps, { register })(SignUpForm);
