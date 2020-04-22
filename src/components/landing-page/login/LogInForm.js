@@ -13,7 +13,7 @@ const loginValidationSchema = yup.object().shape({
 		.string()
 		.email('Enter a valid email')
 		.required('Email is required'),
-	password: yup.string().required('Enter your password')
+	password: yup.string().required('Enter your password'),
 });
 
 // #TODO: implement 'remember my email'
@@ -21,17 +21,17 @@ const LogInForm = ({ authenticate }) => {
 	return (
 		<Formik
 			initialValues={{
-				email: 'khodges@inxitehealth.com', // #TODO: remove saved values
-				password: 'khodges123'
+				email: '', // #TODO: remove saved values
+				password: '',
 				//,rememberEmail: this.props.storedEmail !== "" ? true : false
 			}}
 			validationSchema={loginValidationSchema}
-			onSubmit={values => {
+			onSubmit={(values) => {
 				const user = values;
 				authenticate(user);
 			}}
 		>
-			{props => (
+			{(props) => (
 				<form noValidate autoComplete='off' onSubmit={props.handleSubmit}>
 					<TextField
 						id='email'
@@ -94,4 +94,4 @@ const LogInForm = ({ authenticate }) => {
 	);
 };
 
-export default connect(state => state, { authenticate })(LogInForm);
+export default connect((state) => state, { authenticate })(LogInForm);
