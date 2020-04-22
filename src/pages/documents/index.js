@@ -1,11 +1,11 @@
 import { withPrivate } from '../../components/hoc/withPrivate';
 import MainLayout from '../../components/MainLayout';
-import Typography from '@material-ui/core/Typography';
+import DocumentsPageContent from '../../components/documents-page/DocumentsPageContent';
 
 const Documents = () => {
 	return (
 		<MainLayout>
-			<Typography variant='h3'>Documents</Typography>
+			<DocumentsPageContent />
 		</MainLayout>
 	);
 };

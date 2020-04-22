@@ -1,6 +1,3 @@
-/**
- * Landing page
- */
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
@@ -9,17 +6,17 @@ import React from 'react';
 import NextLink from '../../_utils/Link';
 import LogInForm from './login/LogInForm';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
 	content: {
 		margin: theme.spacing(8, 4),
-		maxWidth: 380
+		maxWidth: 380,
 	},
 	cta: {
-		marginTop: theme.spacing(4)
+		marginTop: theme.spacing(4),
 	},
 	ctaSub: {
 		marginTop: theme.spacing(7),
-		marginBottom: theme.spacing(2)
+		marginBottom: theme.spacing(2),
 	},
 	footer: {
 		display: 'flex',
@@ -28,12 +25,12 @@ const useStyles = makeStyles(theme => ({
 		justifyContent: 'center',
 
 		'& .MuiLink-root': {
-			paddingLeft: theme.spacing(1)
-		}
-	}
+			paddingLeft: theme.spacing(1),
+		},
+	},
 }));
 
-const LandingPageLogin = props => {
+const LandingPageLogin = (props) => {
 	const classes = useStyles();
 
 	return (
