@@ -8,6 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import Link from '../../_utils/Link';
 import Divider from '@material-ui/core/Divider';
+import { connect } from 'react-redux';
+import { authenticateClient } from '../../stores/auth/AuthActions';
 
 const useStyles = makeStyles((theme) => ({
 	content: {
@@ -22,11 +24,17 @@ const useStyles = makeStyles((theme) => ({
 		marginBottom: theme.spacing(2),
 	},
 	ctaBtn: {
+		marginTop: theme.spacing(1),
+		marginBottom: theme.spacing(1),
+	},
+	divider: {
+		width: '100%',
+		marginTop: theme.spacing(2),
 		marginBottom: theme.spacing(2),
 	},
 }));
 
-const LandingPageContent = () => {
+const LandingPageContent = ({ authenticateClient }) => {
 	const classes = useStyles();
 
 	return (
@@ -72,23 +80,25 @@ const LandingPageContent = () => {
 			>
 				Log in
 			</Button>
-			<Divider
-				variant='fullWidth'
-				style={{ marginTop: 16, marginBottom: 16 }}
-			/>
+			<div className={classes.divider}>
+				<Divider variant='middle' />
+			</div>
 			<Button
+				type='button'
 				variant='contained'
 				color='primary'
 				className={classes.ctaBtn}
 				fullWidth
-				component={Link}
-				naked
-				href=''
+				onClick={() => {
+					authenticateClient();
+				}}
 			>
-				Sign up
+				COVID-19 Assessment
 			</Button>
 		</Grid>
 	);
 };
 
-export default LandingPageContent;
+export default connect((state) => state, { authenticateClient })(
+	LandingPageContent
+);
