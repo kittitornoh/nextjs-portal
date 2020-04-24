@@ -8,24 +8,24 @@ import { AUTHENTICATE, AUTHENTICATE_ERROR, DEAUTHENTICATE } from './AuthTypes';
 const environment = development;
 const api = environment.api.authentication;
 
-export const authenticate = user => dispatch => {
+export const authenticate = (user) => (dispatch) => {
 	// header
 	const config = {
-		grant_type: process.env.GRANT_TYPE,
-		client_id: process.env.CLIENT_ID,
-		client_secret: environment.token.auth,
+		grant_type: 'password',
+		client_id: 2,
+		client_secret: process.env.CLIENT_SECRET_PASSWORD,
 		username: user.email,
-		password: user.password
+		password: user.password,
 	};
 
 	axios
 		.post(api, config)
-		.then(res => {
+		.then((res) => {
 			setCookie('token', res.data.access_token);
 			Router.push('/home'); // #TODO: implement a different routing method??
 			dispatch({ type: AUTHENTICATE, payload: res.data.access_token });
 		})
-		.catch(error => {
+		.catch((error) => {
 			// #TODO: add error handling
 			if (error.response) {
 				// The request was made and the server responded with a status code
@@ -53,12 +53,12 @@ export const authenticate = user => dispatch => {
 };
 
 // gets token from the cookie and save it in the store
-export const reauthenticate = token => dispatch => {
+export const reauthenticate = (token) => (dispatch) => {
 	dispatch({ type: AUTHENTICATE, payload: token });
 };
 
 // removes the token
-export const deauthenticate = () => dispatch => {
+export const deauthenticate = () => (dispatch) => {
 	removeCookie('token');
 	Router.push('/login');
 	dispatch({ type: DEAUTHENTICATE });
