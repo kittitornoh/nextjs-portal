@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 		marginTop: theme.spacing(3),
 		marginBottom: theme.spacing(3),
 		padding: theme.spacing(2),
-		minWidth: 480,
+		minWidth: 560,
 		minHeight: 480,
 		display: 'flex',
 		flexDirection: 'column',
