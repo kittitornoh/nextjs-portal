@@ -8,14 +8,14 @@ import { REGISTER, REGISTER_ERROR } from './RegisterTypes';
 const environment = development;
 const api = environment.api.register;
 
-export const register = user => dispatch => {
+export const register = (user) => (dispatch) => {
 	axios
 		.post(api, user)
-		.then(res => {
+		.then((res) => {
 			console.log(res);
 			dispatch({ type: REGISTER });
 		})
-		.catch(error => {
+		.catch((error) => {
 			if (error.response) {
 				// The request was made and the server responded with a status code
 				// that falls out of the range of 2xx

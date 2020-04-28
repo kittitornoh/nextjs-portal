@@ -12,7 +12,7 @@ export default function (baseApi) {
 			authentication: baseApi + '/oauth/token',
 			client: {
 				surveys: {
-					survey: baseApi + '/api/ext/v1/survey',
+					surveys: baseApi + '/api/ext/v1/survey',
 					survey: baseApi + '/api/ext/v1/survey/',
 				},
 			},
