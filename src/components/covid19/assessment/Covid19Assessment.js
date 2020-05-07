@@ -9,6 +9,7 @@ import FormDemographics from './FormDemographics';
 import FormTravelAndExposure from './FormTravelAndExposure';
 import FormSymptoms from './FormSymptoms';
 import FormMedicalConditions from './FormMedicalConditions';
+import FormResults from './FormResults';
 import { Typography } from '@material-ui/core';
 import { authenticateClient } from '../../../stores/auth/AuthActions';
 import { getCountries } from '../../../stores/client/ClientActions';
@@ -201,7 +202,7 @@ const Covid19Assessment = ({
 				);
 			default:
 				return (
-					<div>
+					<>
 						<Typography variant='h5' className={classes.formTitle}>
 							{survey.title}
 						</Typography>
@@ -216,8 +217,8 @@ const Covid19Assessment = ({
 								</Step>
 							))}
 						</Stepper>
-						<div>{JSON.stringify(formData)}</div>
-					</div>
+						<FormResults />
+					</>
 				);
 		}
 	}
