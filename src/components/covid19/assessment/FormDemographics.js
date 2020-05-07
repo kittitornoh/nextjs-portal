@@ -14,7 +14,13 @@ import DateFnsUtils from '@date-io/date-fns';
 import TextField from '@material-ui/core/TextField';
 import * as yup from 'yup';
 import { connect } from 'react-redux';
-import { getStates, getCounties } from '../../../stores/client/ClientActions';
+import {
+	getStates,
+	getCounties,
+	registerParticipant,
+} from '../../../stores/client/ClientActions';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import moment from 'moment';
 
 const useStyles = makeStyles((theme) => ({
 	form: {
@@ -42,14 +48,18 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
 	token: state.auth.client_token,
-	// countries: state.client.countries,
 	states: state.client.states,
 	counties: state.client.counties,
 });
 
 const demographicsValidationSchema = yup.object().shape({
+	date_of_birth: yup
+		.string()
+		.required('Please enter your date of birth')
+		.nullable(),
+	country_id: yup.number().required('Please select a country'),
 	postal: yup
 		.string()
 		.matches(/^\d{5}(?:[-\s]\d{4})?$/, 'Enter a valid zip code'),
@@ -60,26 +70,26 @@ const FormDemographics = ({
 	countries,
 	states,
 	counties,
-	formData,
-	setFormData,
+	ethnicity,
+	gender,
+	race,
 	nextStep,
 	getStates,
 	getCounties,
+	participantData,
+	setParticipantData,
+	registerParticipant,
 }) => {
 	const classes = useStyles();
-
-	useEffect(() => {
-		//console.log(`${countries[236].id} ${countries[236].name}`);
-		//console.log(formData);
-	}, []);
 
 	return (
 		<>
 			<Formik
-				initialValues={formData}
+				initialValues={participantData}
 				validationSchema={demographicsValidationSchema}
 				onSubmit={(values) => {
-					setFormData(values);
+					registerParticipant(token, values);
+					setParticipantData(values);
 					nextStep();
 				}}
 			>
@@ -88,16 +98,32 @@ const FormDemographics = ({
 						<MuiPickersUtilsProvider utils={DateFnsUtils}>
 							<KeyboardDatePicker
 								clearable
+								disableFuture
+								name='date_of_birth'
 								label='Date of Birth'
 								placeholder='mm/dd/yyyy'
 								inputVariant='outlined'
 								value={props.values.date_of_birth}
-								onChange={(date) => props.setFieldValue('date_of_birth', date)}
-								maxDate={new Date()}
+								onChange={(date) =>
+									props.setFieldValue(
+										'date_of_birth',
+										moment(date).format('YYYY-MM-DD')
+									)
+								}
 								format='MM/dd/yyyy'
+								error={
+									props.touched.date_of_birth &&
+									Boolean(props.errors.date_of_birth)
+								}
+								helperText={props.errors.date_of_birth}
 							/>
 						</MuiPickersUtilsProvider>
-						<FormControl variant='outlined'>
+						<FormControl
+							variant='outlined'
+							error={
+								props.touched.country_id && Boolean(props.errors.country_id)
+							}
+						>
 							<InputLabel id='covid19-registration-form-country-labelId'>
 								Country
 							</InputLabel>
@@ -128,6 +154,7 @@ const FormDemographics = ({
 									);
 								})}
 							</Select>
+							<FormHelperText>{props.errors.country_id}</FormHelperText>
 						</FormControl>
 						<FormControl
 							variant='outlined'
@@ -236,17 +263,21 @@ const FormDemographics = ({
 								}}
 								label='Race'
 							>
-								<MenuItem value='asian'>Asian</MenuItem>
-								<MenuItem value='black'>Black</MenuItem>
-								<MenuItem value='white'>White</MenuItem>
-								<MenuItem value='american_indian_alaska_native'>
-									American Indian/ Alaska Native
-								</MenuItem>
-								<MenuItem value='native_hawaiian_other_pacific_islander'>
-									Native Hawaiian/ Other Pacific Islander
-								</MenuItem>
-								<MenuItem value='unknown'>Unknown</MenuItem>
-								<MenuItem value='other'>Other</MenuItem>
+								{race !== null ? (
+									race.map((option) => {
+										return (
+											<MenuItem
+												key={option.id}
+												id={`race_${option.id}`}
+												value={option.id}
+											>
+												{option.race}
+											</MenuItem>
+										);
+									})
+								) : (
+									<div>Loading...</div>
+								)}
 							</Select>
 						</FormControl>
 						<FormControl variant='outlined'>
@@ -266,10 +297,21 @@ const FormDemographics = ({
 								}}
 								label='Gender'
 							>
-								<MenuItem value='male'>Male</MenuItem>
-								<MenuItem value='female'>Female</MenuItem>
-								<MenuItem value='other'>Other</MenuItem>
-								<MenuItem value='unknown'>Unknown</MenuItem>
+								{gender !== null ? (
+									gender.map((option) => {
+										return (
+											<MenuItem
+												key={option.id}
+												id={`gender_${option.id}`}
+												value={option.id}
+											>
+												{option.gender}
+											</MenuItem>
+										);
+									})
+								) : (
+									<div>Loading...</div>
+								)}
 							</Select>
 						</FormControl>
 						<FormControl variant='outlined'>
@@ -289,11 +331,21 @@ const FormDemographics = ({
 								}}
 								label='Ethnicity'
 							>
-								<MenuItem value='hispanic_latino'>Hispanic/ Latino</MenuItem>
-								<MenuItem value='non_hispanic_latino'>
-									Non-Hispanic/ Latino
-								</MenuItem>
-								<MenuItem value='not_specified'>Not Specified</MenuItem>
+								{ethnicity !== null ? (
+									ethnicity.map((option) => {
+										return (
+											<MenuItem
+												key={option.id}
+												id={`gender_${option.id}`}
+												value={option.id}
+											>
+												{option.ethnicity}
+											</MenuItem>
+										);
+									})
+								) : (
+									<div>Loading...</div>
+								)}
 							</Select>
 						</FormControl>
 						<div className={classes.btnGroup}>
@@ -316,4 +368,5 @@ const FormDemographics = ({
 export default connect(mapStateToProps, {
 	getStates,
 	getCounties,
+	registerParticipant,
 })(FormDemographics);

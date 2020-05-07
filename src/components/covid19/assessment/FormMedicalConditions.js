@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import FormLabel from '@material-ui/core/FormLabel';
 import TextField from '@material-ui/core/TextField';
 import FormikRadioGroup from '../../FormikRadioGroup';
+import { submitSurvey } from '../../../stores/client/ClientActions';
 
 const useStyles = makeStyles((theme) => ({
 	form: {
@@ -42,27 +43,47 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
+	token: state.auth.client_token,
 	survey: state.client.survey,
+	participantId: state.client.participantId,
 });
 
 const FormMedicalConditions = ({
+	token,
 	formData,
 	setFormData,
 	nextStep,
 	prevStep,
 	survey,
+	participantId,
+	submitSurvey,
 }) => {
 	const classes = useStyles();
 	const [direction, setDirection] = useState('back');
-
-	useEffect(() => {}, []);
 
 	return (
 		<>
 			<Formik
 				initialValues={formData}
 				onSubmit={(values) => {
+					let surveyData = {
+						participant_id: 13,
+						survey_id: 1,
+						questions: [],
+					};
+
+					for (let [key, value] of Object.entries(values)) {
+						surveyData.questions.push({
+							question_id: parseInt(key),
+							answer: value,
+						});
+					}
+
+					//console.log(surveyData);
+
+					submitSurvey(token, surveyData);
+
 					setFormData(values);
 					direction === 'back' ? prevStep() : nextStep();
 				}}
@@ -144,4 +165,6 @@ const FormMedicalConditions = ({
 	);
 };
 
-export default connect(mapStateToProps, {})(FormMedicalConditions);
+export default connect(mapStateToProps, { submitSurvey })(
+	FormMedicalConditions
+);

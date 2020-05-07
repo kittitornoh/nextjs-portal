@@ -151,7 +151,7 @@ const FormTravelAndExposure = ({
 							}
 						})}
 						<div className={classes.btnGroup}>
-							<Button
+							{/* <Button
 								type='submit'
 								variant='outlined'
 								color='primary'
@@ -159,7 +159,7 @@ const FormTravelAndExposure = ({
 								onClick={() => setDirection('back')}
 							>
 								Back
-							</Button>
+							</Button> */}
 							<Button
 								type='submit'
 								variant='contained'

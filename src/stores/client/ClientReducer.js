@@ -9,6 +9,16 @@ import {
 	FETCH_COUNTY_ERROR,
 	FETCH_STATE,
 	FETCH_STATE_ERROR,
+	SURVEY_SUBMISSION,
+	SURVEY_SUBMISSION_ERROR,
+	REGISTER_PARTICIPANT,
+	REGISTER_PARTICIPANT_ERROR,
+	FETCH_ETHNICITY,
+	FETCH_ETHNICITY_ERROR,
+	FETCH_GENDERS,
+	FETCH_GENDERS_ERROR,
+	FETCH_RACE,
+	FETCH_RACE_ERROR,
 } from './ClientTypes';
 
 const initialState = {
@@ -18,6 +28,11 @@ const initialState = {
 	states: null,
 	counties: null,
 	error: null,
+	participantId: null,
+	riskLevel: null,
+	ethnicity: null,
+	genders: null,
+	race: null,
 };
 
 export default function (state = initialState, action) {
@@ -80,6 +95,72 @@ export default function (state = initialState, action) {
 			return {
 				...state,
 				counties: null,
+				error: action.payload,
+			};
+		case FETCH_ETHNICITY:
+			return {
+				...state,
+				ethnicity: action.payload,
+				error: null,
+			};
+		case FETCH_ETHNICITY_ERROR:
+			return {
+				...state,
+				ethnicity: null,
+				error: action.payload,
+			};
+		case FETCH_GENDERS:
+			return {
+				...state,
+				genders: action.payload,
+				error: null,
+			};
+		case FETCH_GENDERS_ERROR:
+			return {
+				...state,
+				genders: null,
+				error: action.payload,
+			};
+		case FETCH_RACE:
+			return {
+				...state,
+				race: action.payload,
+				error: null,
+			};
+		case FETCH_RACE_ERROR:
+			return {
+				...state,
+				race: null,
+				error: action.payload,
+			};
+		case REGISTER_PARTICIPANT:
+			return {
+				...state,
+				participantId: action.payload,
+			};
+		case REGISTER_PARTICIPANT_ERROR:
+			return {
+				...state,
+				participantId: null,
+				error: action.payload,
+			};
+		case SURVEY_SUBMISSION:
+			return {
+				...state,
+				surveys: null,
+				survey: null,
+				countries: null,
+				states: null,
+				counties: null,
+				error: null,
+				participantId: null,
+				riskLevel: action.payload,
+			};
+
+		case SURVEY_SUBMISSION_ERROR:
+			return {
+				...state,
+				riskLevel: null,
 				error: action.payload,
 			};
 		default:

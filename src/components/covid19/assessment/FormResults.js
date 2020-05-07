@@ -22,6 +22,8 @@ const useStyles = makeStyles((theme) => ({
 	cardRoot: {
 		minWidth: 480,
 		textAlign: 'center',
+		marginTop: theme.spacing(2),
+		marginBottom: theme.spacing(4),
 
 		'& .MuiCardContent-root': {
 			padding: theme.spacing(2),
@@ -58,6 +60,7 @@ const FormResults = () => {
 					</CardContent>
 				</Card>
 			</Grid>
+			{/* #TODO: add list of recommended actions 
 			<Grid item container justify='flex-start' style={{ maxWidth: 480 }}>
 				<List>
 					<ListItem>
@@ -67,7 +70,7 @@ const FormResults = () => {
 						<ListItemText primary='Spam' />
 					</ListItem>
 				</List>
-			</Grid>
+			</Grid> */}
 			<Grid item>
 				<Button
 					type='button'

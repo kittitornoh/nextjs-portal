@@ -4,7 +4,6 @@ import Stepper from '@material-ui/core/Stepper';
 import StepLabel from '@material-ui/core/StepLabel';
 import Step from '@material-ui/core/Step';
 import { connect } from 'react-redux';
-import { getSurvey } from '../../../stores/survey/SurveyActions';
 import FormDemographics from './FormDemographics';
 import FormTravelAndExposure from './FormTravelAndExposure';
 import FormSymptoms from './FormSymptoms';
@@ -12,12 +11,23 @@ import FormMedicalConditions from './FormMedicalConditions';
 import FormResults from './FormResults';
 import { Typography } from '@material-ui/core';
 import { authenticateClient } from '../../../stores/auth/AuthActions';
-import { getCountries } from '../../../stores/client/ClientActions';
+import {
+	getCountries,
+	getSurveys,
+	getSurvey,
+	getEthnicity,
+	getGender,
+	getRace,
+} from '../../../stores/client/ClientActions';
+import axios from 'axios';
 
 const mapStateToProps = (state, ownProps) => ({
 	token: state.auth.client_token,
 	countries: state.client.countries,
 	survey: state.client.survey,
+	ethnicity: state.client.ethnicity,
+	gender: state.client.genders,
+	race: state.client.race,
 });
 
 const useStyles = makeStyles((theme) => ({
@@ -45,13 +55,20 @@ const Covid19Assessment = ({
 	token,
 	survey,
 	getSurvey,
+	getEthnicity,
+	getGender,
+	getRace,
 	getCountries,
 	authenticateClient,
 	countries,
+	ethnicity,
+	gender,
+	race,
 }) => {
 	const classes = useStyles();
 	const [step, setStep] = useState(0);
-	const [formData, setFormData] = useState({
+	const [formData, setFormData] = useState({});
+	const [participantData, setParticipantData] = useState({
 		date_of_birth: null,
 		country_id: '',
 		state_id: '',
@@ -75,6 +92,9 @@ const Covid19Assessment = ({
 		async function loadData() {
 			await getSurvey(token);
 			await getCountries(token);
+			await getEthnicity(token);
+			await getGender(token);
+			await getRace(token);
 		}
 
 		loadData();
@@ -112,13 +132,20 @@ const Covid19Assessment = ({
 								</Step>
 							))}
 						</Stepper>
-						{countries !== null ? (
+						{countries !== null &&
+						ethnicity !== null &&
+						gender !== null &&
+						race !== null ? (
 							<FormDemographics
-								token={token}
 								formData={formData}
 								setFormData={setFormData}
+								participantData={participantData}
+								setParticipantData={setParticipantData}
 								nextStep={nextStep}
 								countries={countries}
+								ethnicity={ethnicity}
+								gender={gender}
+								race={race}
 							/>
 						) : (
 							<div>Loading...</div>
@@ -226,6 +253,8 @@ const Covid19Assessment = ({
 
 export default connect(mapStateToProps, {
 	getSurvey,
+	getEthnicity,
+	getGender,
+	getRace,
 	getCountries,
-	authenticateClient,
 })(Covid19Assessment);

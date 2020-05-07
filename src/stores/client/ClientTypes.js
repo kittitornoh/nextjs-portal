@@ -19,3 +19,19 @@ export const FETCH_COUNTY_ERROR = 'FETCH_COUNTY_ERROR';
 // register participant types
 export const REGISTER_PARTICIPANT = 'REGISTER_PARTICIPANT';
 export const REGISTER_PARTICIPANT_ERROR = 'REGISTER_PARTICIPANT_ERROR';
+
+// submit survey types
+export const SURVEY_SUBMISSION = 'SURVEY_SUBMISSION';
+export const SURVEY_SUBMISSION_ERROR = 'SURVEY_SUBMISSION_ERROR';
+
+// gender types
+export const FETCH_GENDERS = 'FETCH_GENDERS';
+export const FETCH_GENDERS_ERROR = 'FETCH_GENDERS_ERROR';
+
+// races types
+export const FETCH_RACE = 'FETCH_RACES';
+export const FETCH_RACE_ERROR = 'FETCH_RACES_ERROR';
+
+// ethnicity types
+export const FETCH_ETHNICITY = 'FETCH_ETHNICITY';
+export const FETCH_ETHNICITY_ERROR = 'FETCH_ETHNICITY_ERROR';

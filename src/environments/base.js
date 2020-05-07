@@ -13,11 +13,19 @@ export default function (baseApi) {
 			client: {
 				country: baseApi + '/api/ext/v1/country',
 				county: baseApi + '/api/ext/v1/county/',
-				registerParticipant: baseApi + '/api/ext/v1/participant',
+				ethnicity: baseApi + '/api/ext/v1/ethnicity/',
+				gender: baseApi + '/api/ext/v1/gender',
+				race: baseApi + '/api/ext/v1/race/',
 				state: baseApi + '/api/ext/v1/state/',
 				surveys: {
 					surveys: baseApi + '/api/ext/v1/survey',
 					survey: baseApi + '/api/ext/v1/survey/',
+				},
+				surveyParticipants: {
+					storeSurveyParticipant: baseApi + '/api/ext/v1/participant',
+				},
+				surveySubmission: {
+					storeSurveyAndAnswers: baseApi + '/api/ext/v1/surveyAnswer',
 				},
 			},
 			profile: baseApi + '/api/v1/profile',
