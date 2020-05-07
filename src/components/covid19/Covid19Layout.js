@@ -1,11 +1,8 @@
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Covid19Header from './Covid19Header';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
-import React from 'react';
-import PatientNav from './side-nav/PatientNav';
-import MainHeader from './header/MainHeader';
-import ProviderNav from './side-nav/ProviderNav';
-import AdminNav from './side-nav/AdminNav';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -23,19 +20,16 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const MainLayout = ({ children, role = 'patient' }) => {
+const Covid19Layout = ({ children }) => {
 	const classes = useStyles();
 
 	return (
 		<div className={classes.root}>
-			<MainHeader />
-			{role === 'patient' && <PatientNav />}
-			{role === 'provider' && <ProviderNav />}
-			{role === 'admin' && <AdminNav />}
+			<Covid19Header />
 			<main className={classes.content}>
 				<div className={classes.appBarSpacer} />
 				<Container maxWidth='xl' className={classes.container}>
-					<Grid container spacing={3}>
+					<Grid container justify='center' alignItems='center'>
 						{children}
 					</Grid>
 				</Container>
@@ -44,4 +38,4 @@ const MainLayout = ({ children, role = 'patient' }) => {
 	);
 };
 
-export default MainLayout;
+export default Covid19Layout;

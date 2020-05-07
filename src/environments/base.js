@@ -11,6 +11,10 @@ export default function (baseApi) {
 		api: {
 			authentication: baseApi + '/oauth/token',
 			client: {
+				country: baseApi + '/api/ext/v1/country',
+				county: baseApi + '/api/ext/v1/county/',
+				registerParticipant: baseApi + '/api/ext/v1/participant',
+				state: baseApi + '/api/ext/v1/state/',
 				surveys: {
 					surveys: baseApi + '/api/ext/v1/survey',
 					survey: baseApi + '/api/ext/v1/survey/',

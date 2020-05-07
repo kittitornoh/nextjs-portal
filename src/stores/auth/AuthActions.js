@@ -20,7 +20,7 @@ export const authenticateClient = () => (dispatch) => {
 
 	const config = {
 		grant_type: 'client_credentials',
-		client_id: 4,
+		client_id: 1,
 		client_secret: process.env.CLIENT_SECRET_CLIENT_CRED,
 	};
 
