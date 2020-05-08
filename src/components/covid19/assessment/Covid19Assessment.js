@@ -19,7 +19,7 @@ import {
 	getGender,
 	getRace,
 } from '../../../stores/client/ClientActions';
-import axios from 'axios';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const mapStateToProps = (state, ownProps) => ({
 	token: state.auth.client_token,
@@ -28,6 +28,7 @@ const mapStateToProps = (state, ownProps) => ({
 	ethnicity: state.client.ethnicity,
 	gender: state.client.genders,
 	race: state.client.race,
+	surveyResults: state.client.surveyResults,
 });
 
 const useStyles = makeStyles((theme) => ({
@@ -64,6 +65,7 @@ const Covid19Assessment = ({
 	ethnicity,
 	gender,
 	race,
+	surveyResults,
 }) => {
 	const classes = useStyles();
 	const [step, setStep] = useState(0);
@@ -148,7 +150,7 @@ const Covid19Assessment = ({
 								race={race}
 							/>
 						) : (
-							<div>Loading...</div>
+							<CircularProgress color='primary' />
 						)}
 					</>
 				);
@@ -244,7 +246,11 @@ const Covid19Assessment = ({
 								</Step>
 							))}
 						</Stepper>
-						<FormResults />
+						{surveyResults !== null ? (
+							<FormResults surveyResults={surveyResults} />
+						) : (
+							<CircularProgress color='primary' />
+						)}
 					</>
 				);
 		}

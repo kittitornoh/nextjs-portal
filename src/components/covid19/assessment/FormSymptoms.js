@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
 	survey: state.client.survey,
 });
 
@@ -80,7 +80,7 @@ const FormSymptoms = ({
 											<FormLabel>{question.question}</FormLabel>
 											<Field
 												name={question.question_id.toString()}
-												options={['Yes', 'No', 'Unknown']}
+												options={question.available_answers}
 												component={FormikRadioGroup}
 												className={classes.radioGroup}
 											/>

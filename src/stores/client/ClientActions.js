@@ -130,11 +130,9 @@ export const submitSurvey = (token, data) => (dispatch) => {
 	axios
 		.post(api.surveySubmission.storeSurveyAndAnswers, data, config)
 		.then((res) => {
-			//console.log(res);
-			dispatch({ type: SURVEY_SUBMISSION, payload: res.data.data.risk_level });
+			dispatch({ type: SURVEY_SUBMISSION, payload: res.data.data });
 		})
 		.catch((error) => {
-			console.error(error);
 			dispatch({ type: SURVEY_SUBMISSION_ERROR, payload: error.response });
 		});
 };

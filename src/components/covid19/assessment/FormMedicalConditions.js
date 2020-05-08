@@ -68,23 +68,32 @@ const FormMedicalConditions = ({
 				initialValues={formData}
 				onSubmit={(values) => {
 					let surveyData = {
-						participant_id: 13,
-						survey_id: 1,
+						participant_id: participantId,
+						survey_id: survey.survey_id,
 						questions: [],
 					};
 
 					for (let [key, value] of Object.entries(values)) {
-						surveyData.questions.push({
-							question_id: parseInt(key),
-							answer: value,
-						});
+						if (value.length > 0) {
+							if (typeof value === 'array') {
+								surveyData.questions.push({
+									question_id: parseInt(key),
+									answers: value,
+								});
+							} else {
+								surveyData.questions.push({
+									question_id: parseInt(key),
+									answers: [
+										typeof value === 'string' && /^[0-9]*$/.test(value)
+											? parseInt(value)
+											: value,
+									],
+								});
+							}
+						}
 					}
 
-					//console.log(surveyData);
-
 					submitSurvey(token, surveyData);
-
-					setFormData(values);
 					direction === 'back' ? prevStep() : nextStep();
 				}}
 			>
@@ -101,7 +110,7 @@ const FormMedicalConditions = ({
 											<FormLabel>{question.question}</FormLabel>
 											<Field
 												name={question.question_id.toString()}
-												options={['Yes', 'No', 'Unknown']}
+												options={question.available_answers}
 												component={FormikRadioGroup}
 												className={classes.radioGroup}
 											/>

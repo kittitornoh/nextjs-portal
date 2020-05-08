@@ -96,7 +96,7 @@ const FormTravelAndExposure = ({
 											</FormLabel>
 											<Field
 												name={question.question_id.toString()}
-												options={['Yes', 'No', 'Unknown']}
+												options={question.available_answers}
 												component={FormikRadioGroup}
 												className={classes.radioGroup}
 											/>

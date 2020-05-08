@@ -29,7 +29,7 @@ const initialState = {
 	counties: null,
 	error: null,
 	participantId: null,
-	riskLevel: null,
+	surveyResults: null,
 	ethnicity: null,
 	genders: null,
 	race: null,
@@ -147,20 +147,14 @@ export default function (state = initialState, action) {
 		case SURVEY_SUBMISSION:
 			return {
 				...state,
-				surveys: null,
-				survey: null,
-				countries: null,
-				states: null,
-				counties: null,
 				error: null,
-				participantId: null,
-				riskLevel: action.payload,
+				surveyResults: action.payload,
 			};
 
 		case SURVEY_SUBMISSION_ERROR:
 			return {
 				...state,
-				riskLevel: null,
+				surveyResults: null,
 				error: action.payload,
 			};
 		default:

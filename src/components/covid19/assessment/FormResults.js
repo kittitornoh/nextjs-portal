@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Router from 'next/router';
@@ -10,6 +9,8 @@ import CardContent from '@material-ui/core/CardContent';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import BackDrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles((theme) => ({
 	content: {
@@ -18,6 +19,10 @@ const useStyles = makeStyles((theme) => ({
 		marginBottom: theme.spacing(2),
 		paddingLeft: theme.spacing(4),
 		paddingRight: theme.spacing(4),
+	},
+	backdrop: {
+		zIndex: theme.zIndex.drawer + 1,
+		color: '#fff',
 	},
 	cardRoot: {
 		minWidth: 480,
@@ -38,8 +43,22 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const FormResults = () => {
+const FormResults = ({ surveyResults }) => {
 	const classes = useStyles();
+	const colors = {
+		green: '#34A853',
+		yellow: '#FBBC05',
+		red: '#EA4335',
+	};
+	let resultColor;
+
+	if (surveyResults.display_result === 'High Risk') {
+		resultColor = colors.red;
+	} else if (surveyResults.display_result === 'Medium Risk') {
+		resultColor = colors.yellow;
+	} else {
+		resultColor = colors.green;
+	}
 
 	return (
 		<Grid
@@ -54,23 +73,24 @@ const FormResults = () => {
 				<Typography variant='h5'>CDC Risk Assessment Score</Typography>
 			</Grid>
 			<Grid item>
-				<Card className={classes.cardRoot} style={{ backgroundColor: 'green' }}>
+				<Card
+					className={classes.cardRoot}
+					style={{ backgroundColor: `${resultColor}` }}
+				>
 					<CardContent>
-						<Typography variant='h6'>No Identifiable Risk</Typography>
+						<Typography variant='h6'>{surveyResults.display_result}</Typography>
 					</CardContent>
 				</Card>
 			</Grid>
-			{/* #TODO: add list of recommended actions 
 			<Grid item container justify='flex-start' style={{ maxWidth: 480 }}>
 				<List>
-					<ListItem>
-						<ListItemText primary='Trash' />
-					</ListItem>
-					<ListItem>
-						<ListItemText primary='Spam' />
-					</ListItem>
+					{surveyResults.recommendations.map((recommendation) => (
+						<ListItem key={recommendation.recommendation_id}>
+							<ListItemText primary={recommendation.recommendation} />
+						</ListItem>
+					))}
 				</List>
-			</Grid> */}
+			</Grid>
 			<Grid item>
 				<Button
 					type='button'
