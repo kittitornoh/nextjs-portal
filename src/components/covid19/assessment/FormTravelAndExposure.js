@@ -70,7 +70,7 @@ const FormTravelAndExposure = ({
 	const classes = useStyles();
 	const [direction, setDirection] = useState('back');
 
-	useEffect(() => {}, []);
+	useEffect(() => {});
 
 	return (
 		<>

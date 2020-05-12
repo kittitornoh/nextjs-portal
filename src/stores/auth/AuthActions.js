@@ -28,7 +28,7 @@ export const authenticateClient = () => (dispatch) => {
 		.post(api.authentication, config)
 		.then((res) => {
 			setCookie('client_token', res.data.access_token);
-			Router.push('/covid19/assessment');
+			//Router.push('/covid19/assessment');
 			dispatch({ type: CLIENT_AUTHENTICATE, payload: res.data.access_token });
 		})
 		.catch((error) => {

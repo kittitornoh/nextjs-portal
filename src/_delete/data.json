@@ -1,0 +1,758 @@
+{
+	"survey_id": 1,
+	"title": "COVID-19 Assessment",
+	"description": "COVID-19 Assessment",
+	"is_active": 1,
+	"questions": [
+		{
+			"question_id": 1,
+			"question": "Do you have travel history to Mainland China?",
+			"question_answer_type": "S",
+			"page": 1,
+			"sort": 1,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 1, "answer": "Yes" },
+				{ "answer_id": 2, "answer": "No" },
+				{ "answer_id": 3, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 35,
+			"question": "Do you have travel history to Hubei Province, China?",
+			"question_answer_type": "S",
+			"page": 1,
+			"sort": 2,
+			"depends_on_question_id": 1,
+			"show_if_answer_id": 1,
+			"available_answers": [
+				{ "answer_id": 196, "answer": "Yes" },
+				{ "answer_id": 197, "answer": "No" },
+				{ "answer_id": 198, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 36,
+			"question": "Do you have travel history to Wuhan City, China?",
+			"question_answer_type": "S",
+			"page": 1,
+			"sort": 3,
+			"depends_on_question_id": 1,
+			"show_if_answer_id": 1,
+			"available_answers": [
+				{ "answer_id": 199, "answer": "Yes" },
+				{ "answer_id": 200, "answer": "No" },
+				{ "answer_id": 201, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 4,
+			"question": "Do you have travel history to any of the following countries with sustained community transmission?",
+			"question_answer_type": "M",
+			"page": 1,
+			"sort": 4,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 211, "answer": "Afghanistan" },
+				{ "answer_id": 212, "answer": "Åland Islands" },
+				{ "answer_id": 213, "answer": "Albania" },
+				{ "answer_id": 214, "answer": "Algeria" },
+				{ "answer_id": 215, "answer": "American Samoa" },
+				{ "answer_id": 216, "answer": "Andorra" },
+				{ "answer_id": 217, "answer": "Angola" },
+				{ "answer_id": 218, "answer": "Anguilla" },
+				{ "answer_id": 219, "answer": "Antarctica" },
+				{ "answer_id": 220, "answer": "Antigua and Barbuda" },
+				{ "answer_id": 221, "answer": "Argentina" },
+				{ "answer_id": 222, "answer": "Armenia" },
+				{ "answer_id": 223, "answer": "Aruba" },
+				{ "answer_id": 224, "answer": "Australia" },
+				{ "answer_id": 225, "answer": "Austria" },
+				{ "answer_id": 226, "answer": "Azerbaijan" },
+				{ "answer_id": 227, "answer": "Bahamas (the)" },
+				{ "answer_id": 228, "answer": "Bahrain" },
+				{ "answer_id": 229, "answer": "Bangladesh" },
+				{ "answer_id": 230, "answer": "Barbados" },
+				{ "answer_id": 231, "answer": "Belarus" },
+				{ "answer_id": 232, "answer": "Belgium" },
+				{ "answer_id": 233, "answer": "Belize" },
+				{ "answer_id": 234, "answer": "Benin" },
+				{ "answer_id": 235, "answer": "Bermuda" },
+				{ "answer_id": 236, "answer": "Bhutan" },
+				{ "answer_id": 237, "answer": "Bolivia" },
+				{ "answer_id": 238, "answer": "Bonaire" },
+				{ "answer_id": 239, "answer": "Bosnia and Herzegovina" },
+				{ "answer_id": 240, "answer": "Botswana" },
+				{ "answer_id": 241, "answer": "Bouvet Island" },
+				{ "answer_id": 242, "answer": "Brazil" },
+				{ "answer_id": 243, "answer": "British Indian Ocean Territory (the)" },
+				{ "answer_id": 244, "answer": "Brunei Darussalam" },
+				{ "answer_id": 245, "answer": "Bulgaria" },
+				{ "answer_id": 246, "answer": "Burkina Faso" },
+				{ "answer_id": 247, "answer": "Burundi" },
+				{ "answer_id": 248, "answer": "Cabo Verde" },
+				{ "answer_id": 249, "answer": "Cambodia" },
+				{ "answer_id": 250, "answer": "Cameroon" },
+				{ "answer_id": 251, "answer": "Canada" },
+				{ "answer_id": 252, "answer": "Cayman Islands (the)" },
+				{ "answer_id": 253, "answer": "Central African Republic (the)" },
+				{ "answer_id": 254, "answer": "Chad" },
+				{ "answer_id": 255, "answer": "Chile" },
+				{ "answer_id": 256, "answer": "China" },
+				{ "answer_id": 257, "answer": "Christmas Island" },
+				{ "answer_id": 258, "answer": "Cocos (Keeling) Islands (the)" },
+				{ "answer_id": 259, "answer": "Colombia" },
+				{ "answer_id": 260, "answer": "Comoros (the)" },
+				{
+					"answer_id": 261,
+					"answer": "Congo (the Democratic Republic of the)"
+				},
+				{ "answer_id": 262, "answer": "Congo (the)" },
+				{ "answer_id": 263, "answer": "Cook Islands (the)" },
+				{ "answer_id": 264, "answer": "Costa Rica" },
+				{ "answer_id": 265, "answer": "Côte dIvoire" },
+				{ "answer_id": 266, "answer": "Croatia" },
+				{ "answer_id": 267, "answer": "Cuba" },
+				{ "answer_id": 268, "answer": "Curaçao" },
+				{ "answer_id": 269, "answer": "Cyprus" },
+				{ "answer_id": 270, "answer": "Czechia" },
+				{ "answer_id": 271, "answer": "Denmark" },
+				{ "answer_id": 272, "answer": "Djibouti" },
+				{ "answer_id": 273, "answer": "Dominica" },
+				{ "answer_id": 274, "answer": "Dominican Republic (the)" },
+				{ "answer_id": 275, "answer": "Ecuador" },
+				{ "answer_id": 276, "answer": "Egypt" },
+				{ "answer_id": 277, "answer": "El Salvador" },
+				{ "answer_id": 278, "answer": "Equatorial Guinea" },
+				{ "answer_id": 279, "answer": "Eritrea" },
+				{ "answer_id": 280, "answer": "Estonia" },
+				{ "answer_id": 281, "answer": "Eswatini" },
+				{ "answer_id": 282, "answer": "Ethiopia" },
+				{ "answer_id": 283, "answer": "Falkland Islands (the) [Malvinas]" },
+				{ "answer_id": 284, "answer": "Faroe Islands (the)" },
+				{ "answer_id": 285, "answer": "Fiji" },
+				{ "answer_id": 286, "answer": "Finland" },
+				{ "answer_id": 287, "answer": "France" },
+				{ "answer_id": 288, "answer": "French Guiana" },
+				{ "answer_id": 289, "answer": "French Polynesia" },
+				{ "answer_id": 290, "answer": "French Southern Territories (the)" },
+				{ "answer_id": 291, "answer": "Gabon" },
+				{ "answer_id": 292, "answer": "Gambia (the)" },
+				{ "answer_id": 293, "answer": "Georgia" },
+				{ "answer_id": 294, "answer": "Germany" },
+				{ "answer_id": 295, "answer": "Ghana" },
+				{ "answer_id": 296, "answer": "Gibraltar" },
+				{ "answer_id": 297, "answer": "Greece" },
+				{ "answer_id": 298, "answer": "Greenland" },
+				{ "answer_id": 299, "answer": "Grenada" },
+				{ "answer_id": 300, "answer": "Guadeloupe" },
+				{ "answer_id": 301, "answer": "Guam" },
+				{ "answer_id": 302, "answer": "Guatemala" },
+				{ "answer_id": 303, "answer": "Guernsey" },
+				{ "answer_id": 304, "answer": "Guinea" },
+				{ "answer_id": 305, "answer": "Guinea-Bissau" },
+				{ "answer_id": 306, "answer": "Guyana" },
+				{ "answer_id": 307, "answer": "Haiti" },
+				{ "answer_id": 308, "answer": "Heard Island and McDonald Islands" },
+				{ "answer_id": 309, "answer": "Holy See (the)" },
+				{ "answer_id": 310, "answer": "Honduras" },
+				{ "answer_id": 311, "answer": "Hong Kong" },
+				{ "answer_id": 312, "answer": "Hungary" },
+				{ "answer_id": 313, "answer": "Iceland" },
+				{ "answer_id": 314, "answer": "India" },
+				{ "answer_id": 315, "answer": "Indonesia" },
+				{ "answer_id": 316, "answer": "Iran (Islamic Republic of)" },
+				{ "answer_id": 317, "answer": "Iraq" },
+				{ "answer_id": 318, "answer": "Ireland" },
+				{ "answer_id": 319, "answer": "Isle of Man" },
+				{ "answer_id": 320, "answer": "Israel" },
+				{ "answer_id": 321, "answer": "Italy" },
+				{ "answer_id": 322, "answer": "Jamaica" },
+				{ "answer_id": 323, "answer": "Japan" },
+				{ "answer_id": 324, "answer": "Jersey" },
+				{ "answer_id": 325, "answer": "Jordan" },
+				{ "answer_id": 326, "answer": "Kazakhstan" },
+				{ "answer_id": 327, "answer": "Kenya" },
+				{ "answer_id": 328, "answer": "Kiribati" },
+				{
+					"answer_id": 329,
+					"answer": "Korea (the Democratic Peoples Republic of)"
+				},
+				{ "answer_id": 330, "answer": "Korea (the Republic of)" },
+				{ "answer_id": 331, "answer": "Kuwait" },
+				{ "answer_id": 332, "answer": "Kyrgyzstan" },
+				{ "answer_id": 333, "answer": "Lao Peoples Democratic Republic (the)" },
+				{ "answer_id": 334, "answer": "Latvia" },
+				{ "answer_id": 335, "answer": "Lebanon" },
+				{ "answer_id": 336, "answer": "Lesotho" },
+				{ "answer_id": 337, "answer": "Liberia" },
+				{ "answer_id": 338, "answer": "Libya" },
+				{ "answer_id": 339, "answer": "Liechtenstein" },
+				{ "answer_id": 340, "answer": "Lithuania" },
+				{ "answer_id": 341, "answer": "Luxembourg" },
+				{ "answer_id": 342, "answer": "Macao" },
+				{ "answer_id": 343, "answer": "North Macedonia" },
+				{ "answer_id": 344, "answer": "Madagascar" },
+				{ "answer_id": 345, "answer": "Malawi" },
+				{ "answer_id": 346, "answer": "Malaysia" },
+				{ "answer_id": 347, "answer": "Maldives" },
+				{ "answer_id": 348, "answer": "Mali" },
+				{ "answer_id": 349, "answer": "Malta" },
+				{ "answer_id": 350, "answer": "Marshall Islands (the)" },
+				{ "answer_id": 351, "answer": "Martinique" },
+				{ "answer_id": 352, "answer": "Mauritania" },
+				{ "answer_id": 353, "answer": "Mauritius" },
+				{ "answer_id": 354, "answer": "Mayotte" },
+				{ "answer_id": 355, "answer": "Mexico" },
+				{ "answer_id": 356, "answer": "Micronesia (Federated States of)" },
+				{ "answer_id": 357, "answer": "Moldova (the Republic of)" },
+				{ "answer_id": 358, "answer": "Monaco" },
+				{ "answer_id": 359, "answer": "Mongolia" },
+				{ "answer_id": 360, "answer": "Montenegro" },
+				{ "answer_id": 361, "answer": "Montserrat" },
+				{ "answer_id": 362, "answer": "Morocco" },
+				{ "answer_id": 363, "answer": "Mozambique" },
+				{ "answer_id": 364, "answer": "Myanmar" },
+				{ "answer_id": 365, "answer": "Namibia" },
+				{ "answer_id": 366, "answer": "Nauru" },
+				{ "answer_id": 367, "answer": "Nepal" },
+				{ "answer_id": 368, "answer": "Netherlands (the)" },
+				{ "answer_id": 369, "answer": "New Caledonia" },
+				{ "answer_id": 370, "answer": "New Zealand" },
+				{ "answer_id": 371, "answer": "Nicaragua" },
+				{ "answer_id": 372, "answer": "Niger (the)" },
+				{ "answer_id": 373, "answer": "Nigeria" },
+				{ "answer_id": 374, "answer": "Niue" },
+				{ "answer_id": 375, "answer": "Norfolk Island" },
+				{ "answer_id": 376, "answer": "Northern Mariana Islands (the)" },
+				{ "answer_id": 377, "answer": "Norway" },
+				{ "answer_id": 378, "answer": "Oman" },
+				{ "answer_id": 379, "answer": "Pakistan" },
+				{ "answer_id": 380, "answer": "Palau" },
+				{ "answer_id": 381, "answer": "Palestine" },
+				{ "answer_id": 382, "answer": "Panama" },
+				{ "answer_id": 383, "answer": "Papua New Guinea" },
+				{ "answer_id": 384, "answer": "Paraguay" },
+				{ "answer_id": 385, "answer": "Peru" },
+				{ "answer_id": 386, "answer": "Philippines (the)" },
+				{ "answer_id": 387, "answer": "Pitcairn" },
+				{ "answer_id": 388, "answer": "Poland" },
+				{ "answer_id": 389, "answer": "Portugal" },
+				{ "answer_id": 390, "answer": "Puerto Rico" },
+				{ "answer_id": 391, "answer": "Qatar" },
+				{ "answer_id": 392, "answer": "Réunion" },
+				{ "answer_id": 393, "answer": "Romania" },
+				{ "answer_id": 394, "answer": "Russian Federation (the)" },
+				{ "answer_id": 395, "answer": "Rwanda" },
+				{ "answer_id": 396, "answer": "Saint Barthélemy" },
+				{ "answer_id": 397, "answer": "Saint Helena" },
+				{ "answer_id": 398, "answer": "Saint Kitts and Nevis" },
+				{ "answer_id": 399, "answer": "Saint Lucia" },
+				{ "answer_id": 400, "answer": "Saint Martin (French part)" },
+				{ "answer_id": 401, "answer": "Saint Pierre and Miquelon" },
+				{ "answer_id": 402, "answer": "Saint Vincent and the Grenadines" },
+				{ "answer_id": 403, "answer": "Samoa" },
+				{ "answer_id": 404, "answer": "San Marino" },
+				{ "answer_id": 405, "answer": "Sao Tome and Principe" },
+				{ "answer_id": 406, "answer": "Saudi Arabia" },
+				{ "answer_id": 407, "answer": "Senegal" },
+				{ "answer_id": 408, "answer": "Serbia" },
+				{ "answer_id": 409, "answer": "Seychelles" },
+				{ "answer_id": 410, "answer": "Sierra Leone" },
+				{ "answer_id": 411, "answer": "Singapore" },
+				{ "answer_id": 412, "answer": "Sint Maarten (Dutch part)" },
+				{ "answer_id": 413, "answer": "Slovakia" },
+				{ "answer_id": 414, "answer": "Slovenia" },
+				{ "answer_id": 415, "answer": "Solomon Islands" },
+				{ "answer_id": 416, "answer": "Somalia" },
+				{ "answer_id": 417, "answer": "South Africa" },
+				{
+					"answer_id": 418,
+					"answer": "South Georgia and the South Sandwich Islands"
+				},
+				{ "answer_id": 419, "answer": "South Sudan" },
+				{ "answer_id": 420, "answer": "Spain" },
+				{ "answer_id": 421, "answer": "Sri Lanka" },
+				{ "answer_id": 422, "answer": "Sudan (the)" },
+				{ "answer_id": 423, "answer": "Suriname" },
+				{ "answer_id": 424, "answer": "Svalbard" },
+				{ "answer_id": 425, "answer": "Sweden" },
+				{ "answer_id": 426, "answer": "Switzerland" },
+				{ "answer_id": 427, "answer": "Syrian Arab Republic (the)" },
+				{ "answer_id": 428, "answer": "Taiwan (Province of China)" },
+				{ "answer_id": 429, "answer": "Tajikistan" },
+				{ "answer_id": 430, "answer": "Tanzania" },
+				{ "answer_id": 431, "answer": "Thailand" },
+				{ "answer_id": 432, "answer": "Timor-Leste" },
+				{ "answer_id": 433, "answer": "Togo" },
+				{ "answer_id": 434, "answer": "Tokelau" },
+				{ "answer_id": 435, "answer": "Tonga" },
+				{ "answer_id": 436, "answer": "Trinidad and Tobago" },
+				{ "answer_id": 437, "answer": "Tunisia" },
+				{ "answer_id": 438, "answer": "Turkey" },
+				{ "answer_id": 439, "answer": "Turkmenistan" },
+				{ "answer_id": 440, "answer": "Turks and Caicos Islands (the)" },
+				{ "answer_id": 441, "answer": "Tuvalu" },
+				{ "answer_id": 442, "answer": "Uganda" },
+				{ "answer_id": 443, "answer": "Ukraine" },
+				{ "answer_id": 444, "answer": "United Arab Emirates (the)" },
+				{
+					"answer_id": 445,
+					"answer": "United Kingdom of Great Britain and Northern Ireland (the)"
+				},
+				{ "answer_id": 446, "answer": "United States Outlying Islands" },
+				{ "answer_id": 447, "answer": "United States of America (the)" },
+				{ "answer_id": 448, "answer": "Uruguay" },
+				{ "answer_id": 449, "answer": "Uzbekistan" },
+				{ "answer_id": 450, "answer": "Vanuatu" },
+				{ "answer_id": 451, "answer": "Venezuela (Bolivarian Republic of)" },
+				{ "answer_id": 452, "answer": "Viet Nam" },
+				{ "answer_id": 453, "answer": "Virgin Islands (British)" },
+				{ "answer_id": 454, "answer": "Virgin Islands (U.S.)" },
+				{ "answer_id": 455, "answer": "Wallis and Futuna" },
+				{ "answer_id": 456, "answer": "Western Sahara" },
+				{ "answer_id": 457, "answer": "Yemen" },
+				{ "answer_id": 458, "answer": "Zambia" },
+				{ "answer_id": 459, "answer": "Zimbabwe" }
+			]
+		},
+		{
+			"question_id": 7,
+			"question": "Did you have household contact with another lab confirmed COVID-19 case patient while NOT following recommended precautions?",
+			"question_answer_type": "S",
+			"page": 1,
+			"sort": 5,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 118, "answer": "Yes" },
+				{ "answer_id": 119, "answer": "No" },
+				{ "answer_id": 120, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 8,
+			"question": "Did you come in close contact with a person with laboratory confirmed COVID-19?",
+			"question_answer_type": "S",
+			"page": 1,
+			"sort": 6,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 121, "answer": "Yes" },
+				{ "answer_id": 122, "answer": "No" },
+				{ "answer_id": 123, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 9,
+			"question": "Did you travel in an aircraft that had a laboratory confirmed COVID-19 person on-board?",
+			"question_answer_type": "S",
+			"page": 1,
+			"sort": 7,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 124, "answer": "Yes" },
+				{ "answer_id": 125, "answer": "No" },
+				{ "answer_id": 126, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 10,
+			"question": "Did you have household contact with another lab confirmed COVID-19 case patient while consistently following recommended precautions?",
+			"question_answer_type": "S",
+			"page": 1,
+			"sort": 8,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 127, "answer": "Yes" },
+				{ "answer_id": 128, "answer": "No" },
+				{ "answer_id": 129, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 11,
+			"question": "Were you in the same indoor environment (such as a classroom or hospital waiting room) as a COVID-19 symptomatic person?",
+			"question_answer_type": "S",
+			"page": 1,
+			"sort": 9,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 130, "answer": "Yes" },
+				{ "answer_id": 131, "answer": "No" },
+				{ "answer_id": 132, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 12,
+			"question": "Fever > 100.4F (38C)",
+			"question_answer_type": "S",
+			"page": 2,
+			"sort": 1,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 133, "answer": "Yes" },
+				{ "answer_id": 134, "answer": "No" },
+				{ "answer_id": 135, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 13,
+			"question": "Subjective Fever (felt feverish)",
+			"question_answer_type": "S",
+			"page": 2,
+			"sort": 2,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 136, "answer": "Yes" },
+				{ "answer_id": 137, "answer": "No" },
+				{ "answer_id": 138, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 14,
+			"question": "Chills",
+			"question_answer_type": "S",
+			"page": 2,
+			"sort": 3,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 139, "answer": "Yes" },
+				{ "answer_id": 140, "answer": "No" },
+				{ "answer_id": 141, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 15,
+			"question": "Muscle aches (myalgia)",
+			"question_answer_type": "S",
+			"page": 2,
+			"sort": 4,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 142, "answer": "Yes" },
+				{ "answer_id": 143, "answer": "No" },
+				{ "answer_id": 144, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 16,
+			"question": "Runny Nose (rhinorrea)",
+			"question_answer_type": "S",
+			"page": 2,
+			"sort": 5,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 145, "answer": "Yes" },
+				{ "answer_id": 146, "answer": "No" },
+				{ "answer_id": 147, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 17,
+			"question": "Sore Throat",
+			"question_answer_type": "S",
+			"page": 2,
+			"sort": 6,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 148, "answer": "Yes" },
+				{ "answer_id": 149, "answer": "No" },
+				{ "answer_id": 150, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 18,
+			"question": "Cough (new onset or worsening chronic cough)",
+			"question_answer_type": "S",
+			"page": 2,
+			"sort": 7,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 151, "answer": "Yes" },
+				{ "answer_id": 152, "answer": "No" },
+				{ "answer_id": 153, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 19,
+			"question": "Shortness of Breath (dyspnea)",
+			"question_answer_type": "S",
+			"page": 2,
+			"sort": 8,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 154, "answer": "Yes" },
+				{ "answer_id": 155, "answer": "No" },
+				{ "answer_id": 156, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 20,
+			"question": "Nausea or Vomiting",
+			"question_answer_type": "S",
+			"page": 2,
+			"sort": 9,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 157, "answer": "Yes" },
+				{ "answer_id": 158, "answer": "No" },
+				{ "answer_id": 159, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 21,
+			"question": "Headache",
+			"question_answer_type": "S",
+			"page": 2,
+			"sort": 10,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 160, "answer": "Yes" },
+				{ "answer_id": 161, "answer": "No" },
+				{ "answer_id": 162, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 38,
+			"question": "Abdominal pain",
+			"question_answer_type": "S",
+			"page": 2,
+			"sort": 11,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 202, "answer": "Yes" },
+				{ "answer_id": 203, "answer": "No" },
+				{ "answer_id": 204, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 22,
+			"question": "Diarrhea (>=3 loose/ looser than normal stools/ 24 hour period)",
+			"question_answer_type": "S",
+			"page": 2,
+			"sort": 12,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 163, "answer": "Yes" },
+				{ "answer_id": 164, "answer": "No" },
+				{ "answer_id": 165, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 23,
+			"question": "Other sypmtoms",
+			"question_answer_type": "S",
+			"page": 2,
+			"sort": 13,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 205, "answer": "Yes" },
+				{ "answer_id": 206, "answer": "No" },
+				{ "answer_id": 207, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 39,
+			"question": "Other symptoms, specify",
+			"question_answer_type": "T",
+			"page": 2,
+			"sort": 14,
+			"depends_on_question_id": 23,
+			"show_if_answer_id": 205,
+			"available_answers": []
+		},
+		{
+			"question_id": 24,
+			"question": "Chronic Lung Disease (asthma/emphysema/COPD)",
+			"question_answer_type": "S",
+			"page": 3,
+			"sort": 1,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 166, "answer": "Yes" },
+				{ "answer_id": 167, "answer": "No" },
+				{ "answer_id": 168, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 25,
+			"question": "Diabetes Mellitus",
+			"question_answer_type": "S",
+			"page": 3,
+			"sort": 2,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 169, "answer": "Yes" },
+				{ "answer_id": 170, "answer": "No" },
+				{ "answer_id": 171, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 26,
+			"question": "Cardiovascular Disease",
+			"question_answer_type": "S",
+			"page": 3,
+			"sort": 3,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 172, "answer": "Yes" },
+				{ "answer_id": 173, "answer": "No" },
+				{ "answer_id": 174, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 27,
+			"question": "Chronic Renal Disease",
+			"question_answer_type": "S",
+			"page": 3,
+			"sort": 4,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 175, "answer": "Yes" },
+				{ "answer_id": 176, "answer": "No" },
+				{ "answer_id": 177, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 28,
+			"question": "Chronic Liver Disease",
+			"question_answer_type": "S",
+			"page": 3,
+			"sort": 5,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 178, "answer": "Yes" },
+				{ "answer_id": 179, "answer": "No" },
+				{ "answer_id": 180, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 29,
+			"question": "Immunocompromised Condition",
+			"question_answer_type": "S",
+			"page": 3,
+			"sort": 6,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 181, "answer": "Yes" },
+				{ "answer_id": 182, "answer": "No" },
+				{ "answer_id": 183, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 30,
+			"question": "Neurologic/neurodevelopmental/intellectual disability",
+			"question_answer_type": "S",
+			"page": 3,
+			"sort": 7,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 184, "answer": "Yes" },
+				{ "answer_id": 185, "answer": "No" },
+				{ "answer_id": 186, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 40,
+			"question": "Neurologic disability, specify",
+			"question_answer_type": "T",
+			"page": 3,
+			"sort": 8,
+			"depends_on_question_id": 30,
+			"show_if_answer_id": 184,
+			"available_answers": []
+		},
+		{
+			"question_id": 31,
+			"question": "Other chronic diseases",
+			"question_answer_type": "S",
+			"page": 3,
+			"sort": 9,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 208, "answer": "Yes" },
+				{ "answer_id": 209, "answer": "No" },
+				{ "answer_id": 210, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 41,
+			"question": "Other chronic diseases, specify",
+			"question_answer_type": "T",
+			"page": 3,
+			"sort": 10,
+			"depends_on_question_id": 31,
+			"show_if_answer_id": 208,
+			"available_answers": []
+		},
+		{
+			"question_id": 32,
+			"question": "If female, currently pregnant",
+			"question_answer_type": "S",
+			"page": 3,
+			"sort": 11,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 187, "answer": "Yes" },
+				{ "answer_id": 188, "answer": "No" },
+				{ "answer_id": 189, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 33,
+			"question": "Current smoker",
+			"question_answer_type": "S",
+			"page": 3,
+			"sort": 12,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 190, "answer": "Yes" },
+				{ "answer_id": 191, "answer": "No" },
+				{ "answer_id": 192, "answer": "Unknown" }
+			]
+		},
+		{
+			"question_id": 34,
+			"question": "Former smoker",
+			"question_answer_type": "S",
+			"page": 3,
+			"sort": 13,
+			"depends_on_question_id": 0,
+			"show_if_answer_id": 0,
+			"available_answers": [
+				{ "answer_id": 193, "answer": "Yes" },
+				{ "answer_id": 194, "answer": "No" },
+				{ "answer_id": 195, "answer": "Unknown" }
+			]
+		}
+	]
+}

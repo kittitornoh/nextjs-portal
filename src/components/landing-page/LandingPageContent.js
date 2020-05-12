@@ -80,7 +80,7 @@ const LandingPageContent = ({ authenticateClient }) => {
 			>
 				Log in
 			</Button>
-			<div className={classes.divider}>
+			{/* <div className={classes.divider}>
 				<Divider variant='middle' />
 			</div>
 			<Button
@@ -89,12 +89,12 @@ const LandingPageContent = ({ authenticateClient }) => {
 				color='primary'
 				className={classes.ctaBtn}
 				fullWidth
-				onClick={() => {
-					authenticateClient();
-				}}
+				component={Link}
+				naked
+				href='/covid19/assessment'
 			>
 				COVID-19 Assessment
-			</Button>
+			</Button> */}
 		</Grid>
 	);
 };
