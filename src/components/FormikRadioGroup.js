@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -17,8 +17,6 @@ const FormikRadioGroup = ({
 		<React.Fragment>
 			<RadioGroup {...field} {...props} name={fieldName}>
 				{options.map((option) => {
-					const [checked, setChecked] = useState(false);
-
 					return (
 						<FormControlLabel
 							key={option.answer_id.toString()}

@@ -16,6 +16,10 @@ export default function (baseApi) {
 				ethnicity: baseApi + '/api/ext/v1/ethnicity/',
 				gender: baseApi + '/api/ext/v1/gender',
 				race: baseApi + '/api/ext/v1/race/',
+				register: {
+					user: baseApi + '/api/ext/v1/register',
+					clinician: baseApi + '/api/ext/v1/clinician',
+				},
 				state: baseApi + '/api/ext/v1/state/',
 				surveys: {
 					surveys: baseApi + '/api/ext/v1/survey',

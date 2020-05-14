@@ -8,16 +8,13 @@ import { register } from '../../../stores/register/RegisterActions';
 import Typography from '@material-ui/core/Typography';
 
 const mapStateToProps = (state, ownProps) => ({
-	registerStatus: state.register
+	registerStatus: state.register,
 });
 
 const signupValidationSchema = yup.object().shape({
 	first_name: yup.string().required('First name is required'),
 	last_name: yup.string().required('Last name is required'),
-	email: yup
-		.string()
-		.email('Email is invalid')
-		.required('Email is required'),
+	email: yup.string().email('Email is invalid').required('Email is required'),
 	password: yup
 		.string()
 		.min(6, 'Password must be at least 6 characters')
@@ -25,26 +22,26 @@ const signupValidationSchema = yup.object().shape({
 	password_confirmation: yup
 		.string()
 		.oneOf([yup.ref('password'), null], 'Passwords must match')
-		.required('Confirm password is required')
+		.required('Confirm password is required'),
 });
 
 const SignUpForm = ({ register, registerStatus }) => {
 	return (
 		<Formik
 			initialValues={{
-				first_name: 'Michael',
-				last_name: 'Scott',
-				email: 'mscott@dunder.com',
-				password: 'password1',
-				password_confirmation: 'password1'
+				first_name: '',
+				last_name: '',
+				email: '',
+				password: '',
+				password_confirmation: '',
 			}}
 			validationSchema={signupValidationSchema}
-			onSubmit={values => {
+			onSubmit={(values) => {
 				const user = values;
 				register(user);
 			}}
 		>
-			{props => (
+			{(props) => (
 				<form noValidate autoComplete='off' onSubmit={props.handleSubmit}>
 					<TextField
 						id='first_name'

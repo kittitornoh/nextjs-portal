@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import { connect } from 'react-redux';
 import { authenticateClient } from '../../stores/auth/AuthActions';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -49,7 +50,19 @@ const Covid19Layout = ({ children, token, authenticateClient }) => {
 					<div className={classes.appBarSpacer} />
 					<Container maxWidth='xl' className={classes.container}>
 						<Grid container justify='center' alignItems='center'>
-							<CircularProgress color='primary' />
+							<Grid item>
+								<CircularProgress color='primary' />
+							</Grid>
+							{/* {setTimeout(() => {
+								return (
+									<Grid item>
+										<Typography variant='subtitle1'>
+											Looks like it's taking longer than usual. Try refreshing
+											the page.
+										</Typography>
+									</Grid>
+								);
+							}, 7000)} */}
 						</Grid>
 					</Container>
 				</main>

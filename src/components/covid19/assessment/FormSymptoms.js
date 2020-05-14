@@ -76,6 +76,13 @@ const FormSymptoms = ({
 										<div
 											key={question.question_id}
 											className={classes.formItem}
+											id={question.question_id}
+											style={{
+												display:
+													question.depends_on_question_id !== 0
+														? 'none'
+														: 'flex',
+											}}
 										>
 											<FormLabel>{question.question}</FormLabel>
 											<Field

@@ -70,7 +70,16 @@ const FormTravelAndExposure = ({
 	const classes = useStyles();
 	const [direction, setDirection] = useState('back');
 
-	useEffect(() => {});
+	// useEffect(() => {
+	// 	//console.log(survey.questions);
+	// 	survey.questions.forEach((question) => {
+	// 		//console.log(question);
+	// 		if (question.depends_on_question_id !== 0) {
+	// 			hiddenQuestions.push(question);
+	// 		}
+	// 	});
+	// 	//console.log(hiddenQuestions);
+	// }, []);
 
 	return (
 		<>
@@ -86,20 +95,23 @@ const FormTravelAndExposure = ({
 						{survey.questions.map((question) => {
 							if (question.page === 1) {
 								if (question.question_answer_type === 'S') {
+									//  #TODO: load questions dynamically if question.depends_on_question_id !== 0
 									return (
-										<div
-											key={question.question_id}
-											className={classes.formItem}
-										>
-											<FormLabel className={classes.formItemLabel}>
-												{question.question}
-											</FormLabel>
-											<Field
-												name={question.question_id.toString()}
-												options={question.available_answers}
-												component={FormikRadioGroup}
-												className={classes.radioGroup}
-											/>
+										<div key={question.question_id}>
+											<div
+												className={classes.formItem}
+												id={question.question_id}
+											>
+												<FormLabel className={classes.formItemLabel}>
+													{question.question}
+												</FormLabel>
+												<Field
+													name={question.question_id.toString()}
+													options={question.available_answers}
+													component={FormikRadioGroup}
+													className={classes.radioGroup}
+												/>
+											</div>
 										</div>
 									);
 								} else if (question.question_answer_type === 'M') {
